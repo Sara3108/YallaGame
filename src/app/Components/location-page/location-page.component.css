@@ -24,11 +24,18 @@ h4 {
  } 
  #findBtn{
      background-color: rgb(231, 166, 24);
-     width: 50%;
-     margin: 7px;
+     width: 90%;
+     margin: 7px auto;
+     padding: 0;
+     
+ }
+ select,option{
+     height: 40px;
+     font-size: 12px;
+     widows: 100%;
  }
 
-
+/* 
 .example-container {
    
     display: flex;
@@ -41,7 +48,7 @@ h4 {
     margin-bottom: 200px;
     opacity: 0.3%;
     
-  }
+  } */
 
   img{
       width: 110px;
