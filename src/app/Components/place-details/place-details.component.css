@@ -17,3 +17,8 @@
     background-color: lightgrey;
     width: 100%;
 }
+.place_profile{
+    color: white;
+    background-image: url('../../../assets/images/profile-cover.jpg');
+    background-size: cover;
+}

@@ -34,6 +34,7 @@ import { AuthLoginService } from './services/auth-login.service';
 import { PlaceDetailsComponent } from './Components/place-details/place-details.component';
 import { ReviewComponent } from './shared/review/review.component';
 import { StarRatingComponent } from './shared/star-rating/star-rating.component';
+import { ReviewDetailsComponent } from './shared/review-details/review-details.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { StarRatingComponent } from './shared/star-rating/star-rating.component'
     PlaceDetailsComponent,
     ReviewComponent,
     StarRatingComponent,
+    ReviewDetailsComponent,
 
   ],
   imports: [

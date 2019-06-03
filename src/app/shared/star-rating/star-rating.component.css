@@ -1,7 +1,9 @@
-.clear-rating {
-    display: none !important;
+.starItem{
+    font-size: 30px;
 }
-
-.rating-container .caption{
-    display: none !important;
+.starItem:hover {
+    cursor: pointer;
+}
+.checked{
+    color: rgb(247, 203, 8);
 }
