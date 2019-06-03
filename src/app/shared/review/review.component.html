@@ -1,0 +1,68 @@
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> Launch demo modal</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" style="z-index: 1050 !important; color: #337ab7;" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="width: 450px;">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h3 class="text-center text-bold text-blue">Caregiver Review</h3>
+        <hr>
+        <div class="row">
+          <img class="img-fluid mx-auto" style="border-radius: 50%" src="https://picsum.photos/70/70" alt="Profile image">
+        </div>
+        <div class="text-center">
+          <h3>Badr Shahin</h3>
+          <span>Rate the care provided {{date | date:'MMMM dd yyyy'}}</span>
+          <!-- <h2>rating</h2> -->
+          <app-star-rating></app-star-rating>
+        </div>
+        <!-- <star-rating [starType]="'svg'"></star-rating> -->
+        <!-- <span id="rateMe">
+          <i class="fas fa-star py-2 px-1 rate-popover" data-index="0" data-html="true" data-toggle="popover"
+            data-placement="top" title="Very bad"></i>
+          <i class="fas fa-star py-2 px-1 rate-popover" data-index="1" data-html="true" data-toggle="popover"
+            data-placement="top" title="Poor"></i>
+          <i class="fas fa-star py-2 px-1 rate-popover" data-index="2" data-html="true" data-toggle="popover"
+            data-placement="top" title="OK"></i>
+          <i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover"
+            data-placement="top" title="Good"></i>
+          <i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover"
+            data-placement="top" title="Excellent"></i>
+        </span>
+
+        <label for="input-7-xs" class="control-label">Extra Small Rating</label>
+        <input id="input-7-xs" class="rating rating-loading" value="1" data-min="0" data-max="5" data-step="0.5"
+          data-size="xs">
+        <hr />
+
+
+        <script src="js/addons/rating.js"></script> -->
+        <form>
+          <div class="form-group mx-auto" style="opacity: 0.6; width: 90%">
+            <textarea class="form-control" style="background-color: aliceblue;" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Additional Comments..."></textarea>
+          </div>
+          <br>
+          <div class="d-flex mx-auto" style="width: 90%; ">
+            <button type="button" style="flex-grow: 1; margin-right: 15px;" class="btn btn-secondary" data-dismiss="modal">Not
+              Now</button>
+            <button type="submit" style="flex-grow: 1" class="btn btn-primary">Submit Review</button>
+          </div>
+          <!-- <input type="submit" class="btn btn-primary float-right" value="Add" /> -->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="card w-50">
+    <div class="card-body">
+      <div class="d-flex">
+        <h5 class="card-title" style="flex-grow: 1;margin: 0">User Name</h5>
+        <p style="flex-grow:1">Rate</p>
+      </div>
+      <p class="card-text">Content Of Comment</p>
+    </div>
+  </div> -->

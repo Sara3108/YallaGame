@@ -26,11 +26,14 @@ import { FiltrationComponent } from './Components/filtration/filtration.componen
 import { HomeComponent } from './Components/home/home.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
+import { StarRatingModule } from 'angular-star-rating'
 
 
 //services 
 import { AuthLoginService } from './services/auth-login.service';
 import { PlaceDetailsComponent } from './Components/place-details/place-details.component';
+import { ReviewComponent } from './shared/review/review.component';
+import { StarRatingComponent } from './shared/star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +47,8 @@ import { PlaceDetailsComponent } from './Components/place-details/place-details.
     FiltrationComponent,
     HomeComponent,
     PlaceDetailsComponent,
+    ReviewComponent,
+    StarRatingComponent,
 
   ],
   imports: [
@@ -68,7 +73,8 @@ import { PlaceDetailsComponent } from './Components/place-details/place-details.
     HttpClientModule,
     MatTabsModule,
     MatCheckboxModule,
-    MatCardModule
+    MatCardModule,
+    StarRatingModule.forRoot()
 
   ],
   providers: [AuthLoginService],
