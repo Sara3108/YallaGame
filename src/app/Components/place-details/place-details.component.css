@@ -9,3 +9,11 @@
     float: none;
 }
 
+.mat-ink-bar {
+    background-color: rgb(231, 166, 24) !important ;
+}
+
+.mat-tab-label{
+    background-color: lightgrey;
+    width: 100%;
+}

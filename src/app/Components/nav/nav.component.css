@@ -5,7 +5,11 @@ img{
 }
 
 nav{
-    background-color: rgb(5, 62, 128)
+    background-color: rgb(5, 62, 128);
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    padding-top: 0;
 }
 /* .btn-outline-success{
     border: 2px solid yellow;
