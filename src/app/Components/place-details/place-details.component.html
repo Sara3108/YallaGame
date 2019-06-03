@@ -17,15 +17,18 @@
 
     <mat-tab-group mat-align-tabs="center" [selectedIndex]="1">
       <mat-tab disabled></mat-tab>
-      <mat-tab label="Info" active="true"> Info </mat-tab>
+      <mat-tab label="Info" active="true">
+        <br>
+        <app-info-tab></app-info-tab>
+      </mat-tab>
       <mat-tab label="Games">
-          <br>
-          <app-games-tab></app-games-tab> 
+        <br>
+        <app-games-tab></app-games-tab>
       </mat-tab>
       <mat-tab label="Reviews">
         <br>
         <app-reviews-tab></app-reviews-tab>
-       
+
       </mat-tab>
 
       <mat-tab label="Photos"> Photos </mat-tab>

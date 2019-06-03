@@ -37,6 +37,7 @@ import { StarRatingComponent } from './shared/star-rating/star-rating.component'
 import { ReviewDetailsComponent } from './shared/review-details/review-details.component';
 import { GamesTabComponent } from './Components/games-tab/games-tab.component';
 import { ReviewsTabComponent } from './Components/reviews-tab/reviews-tab.component';
+import { InfoTabComponent } from './Components/info-tab/info-tab.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { ReviewsTabComponent } from './Components/reviews-tab/reviews-tab.compon
     ReviewDetailsComponent,
     GamesTabComponent,
     ReviewsTabComponent,
+    InfoTabComponent,
 
   ],
   imports: [
