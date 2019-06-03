@@ -18,19 +18,8 @@
     border-radius: 50%;
     width: 150px;
 }
-.header{
-    background-color: rgb(240, 239, 239);
-    font-size: 21px;
-    padding: 5px;
-    color: gray;
-    max-width: 100%;
-    margin: 0;
-    
-}
-mat-icon{
-    color: lightgray;
-    padding-top: 5px;
-}
+
+
 
 
 mat-card{
@@ -50,11 +39,6 @@ mat-tab{
     height: 200px;
     color: white;
     /* background-color: black; */
-    background-image: url('../../../assets/images/pbk.jpg');
+    background-image: url('../../../assets/images/pbk3.png');
     background-size: cover;
 }
-
-/* .container{
-    background-image: url('../../../assets/images/bk.png');
-    background-size: cover;
-} */

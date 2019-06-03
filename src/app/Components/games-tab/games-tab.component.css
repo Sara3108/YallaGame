@@ -1,0 +1,18 @@
+.header{
+    background-color: rgb(240, 239, 239);
+    font-size: 21px;
+    padding: 5px;
+    color: gray;
+    max-width: 100%;
+    margin: 0;   
+}
+mat-icon{
+    color: rgb(231, 166, 24);
+    padding-top: 5px;
+}
+img{
+    width: 120px;
+    height: 120px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px gray ;
+}
