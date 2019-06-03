@@ -1,21 +1,7 @@
-<div class="">
-      <!-- <br/>
-      <label for="input-1" class="control-label">Give a rating for Skill:</label>
-      <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="2"> -->
-  
-  
-      <br/>
-      <!-- <label for="input-2" class="control-label">Give a rating for Knowledge:</label> -->
-      <input id="input-2" name="input-2" class="rating" data-min="0" data-max="5" data-step="1" value="1">
-  
-<!--   
-      <br/>
-      <label for="input-3" class="control-label">Give a rating for PHP:</label>
-      <input id="input-3" name="input-3" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="5"> -->
-  
-  
+<div class="text-center">
+    <span [class.checked]="starsCount >= 1" class="starItem px-2" (click)="addRating(1)">&#9733;</span>
+    <span [class.checked]="starsCount >= 2" class="starItem px-2" (click)="addRating(2)">&#9733;</span>
+    <span [class.checked]="starsCount >= 3" class="starItem px-2" (click)="addRating(3)">&#9733;</span>
+    <span [class.checked]="starsCount >= 4" class="starItem px-2" (click)="addRating(4)">&#9733;</span>
+    <span [class.checked]="starsCount >= 5" class="starItem px-2" (click)="addRating(5)">&#9733;</span>
   </div>
-
-  <script>
-    $("#input-id").rating();
-  </script>
