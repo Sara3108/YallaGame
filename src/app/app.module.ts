@@ -35,6 +35,8 @@ import { PlaceDetailsComponent } from './Components/place-details/place-details.
 import { ReviewComponent } from './shared/review/review.component';
 import { StarRatingComponent } from './shared/star-rating/star-rating.component';
 import { ReviewDetailsComponent } from './shared/review-details/review-details.component';
+import { GamesTabComponent } from './Components/games-tab/games-tab.component';
+import { ReviewsTabComponent } from './Components/reviews-tab/reviews-tab.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { ReviewDetailsComponent } from './shared/review-details/review-details.c
     ReviewComponent,
     StarRatingComponent,
     ReviewDetailsComponent,
+    GamesTabComponent,
+    ReviewsTabComponent,
 
   ],
   imports: [
