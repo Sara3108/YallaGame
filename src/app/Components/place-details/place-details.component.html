@@ -21,7 +21,7 @@
       <mat-tab label="Games"> Games </mat-tab>
       <mat-tab label="Reviews">
         <br>
-        
+
         <div class="container" style="max-width: 100%; border: 1px solid lightgray">
 
           <div class="row header" style="max-width: 100%;">
@@ -29,15 +29,17 @@
               <mat-icon>star</mat-icon> Reviews
             </div>
             <div class="col-md-3 order-md-2 text-center">
-              <button mat-raised-button id="loginBtn" color="warn" style="background-color: rgb(231, 166, 24);" data-toggle="modal" data-target="#exampleModal">Add Reviews</button>
+              <button mat-raised-button id="loginBtn" color="warn" style="background-color: rgb(231, 166, 24);"
+                data-toggle="modal" data-target="#exampleModal">Add Reviews</button>
             </div>
           </div>
           <br>
-            <app-review-details></app-review-details>
-            <app-review-details></app-review-details>
-            <app-review-details></app-review-details>
-            <app-review-details></app-review-details>
-            
+          <div class="review-container">
+            <div *ngFor="let item of reviewNumber">
+              <app-review-details></app-review-details>
+            </div>
+          </div>
+
         </div>
       </mat-tab>
 
