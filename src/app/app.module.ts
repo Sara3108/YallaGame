@@ -38,6 +38,8 @@ import { ReviewDetailsComponent } from './shared/review-details/review-details.c
 import { GamesTabComponent } from './Components/games-tab/games-tab.component';
 import { ReviewsTabComponent } from './Components/reviews-tab/reviews-tab.component';
 import { InfoTabComponent } from './Components/info-tab/info-tab.component';
+import { InvitationModalComponent } from './Components/invitation-modal/invitation-modal.component';
+import { SmallStarRatingComponent } from './shared/small-star-rating/small-star-rating.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { InfoTabComponent } from './Components/info-tab/info-tab.component';
     GamesTabComponent,
     ReviewsTabComponent,
     InfoTabComponent,
+    InvitationModalComponent,
+    SmallStarRatingComponent,
 
   ],
   imports: [

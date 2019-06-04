@@ -1,7 +1,5 @@
 .starItem{
-    font-size: 25px;
-    margin: 0;
-    padding: 0;
+    font-size: 15px;
 }
 .starItem:hover {
     cursor: pointer;
