@@ -40,6 +40,7 @@ import { ReviewsTabComponent } from './Components/reviews-tab/reviews-tab.compon
 import { InfoTabComponent } from './Components/info-tab/info-tab.component';
 import { InvitationModalComponent } from './Components/invitation-modal/invitation-modal.component';
 import { SmallStarRatingComponent } from './shared/small-star-rating/small-star-rating.component';
+import { InvitationComponent } from './Components/invitation/invitation.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { SmallStarRatingComponent } from './shared/small-star-rating/small-star-
     InfoTabComponent,
     InvitationModalComponent,
     SmallStarRatingComponent,
+    InvitationComponent
 
   ],
   imports: [
@@ -70,8 +72,9 @@ import { SmallStarRatingComponent } from './shared/small-star-rating/small-star-
       { path: '', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'location', component: LocationPageComponent },
-      { path: 'hf', component: HomeFiltrationContainerComponent },
-      { path: 'pd', component: PlaceDetailsComponent }
+      { path: 'home', component: HomeFiltrationContainerComponent },
+      { path: 'place-details', component: PlaceDetailsComponent },
+      {path:'notification' , component:InvitationComponent}
     ]),
     MatFormFieldModule,
     MatInputModule,

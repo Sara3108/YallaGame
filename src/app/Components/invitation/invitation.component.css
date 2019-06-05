@@ -1,0 +1,31 @@
+.header{
+    background-color: rgb(240, 239, 239);
+    font-size: 21px;
+    padding: 5px;
+    color: gray;
+    max-width: 100%;
+    margin: 0;   
+}
+img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    box-shadow: 3px 3px 10px gray ;
+    margin: auto;
+}
+#accept{
+    background-color: rgb(231, 166, 24);
+    width: 30%;
+    margin: 10px;
+    padding: 2px;
+}
+#reject{
+    background-color: rgb(121, 118, 113);
+    width: 30%;
+    padding: 2px;
+    margin: 10px;
+    
+}
+#placeName{
+    margin-top: 0;
+}
