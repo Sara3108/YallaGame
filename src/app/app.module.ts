@@ -44,6 +44,7 @@ import { InvitationComponent } from './Components/invitation/invitation.componen
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
 import { UserInfoComponent } from './Components/user-info/user-info.component';
 import { PlaceInfoEditComponent } from './Components/place-info-edit/place-info-edit.component';
+import { UserInfoEditComponent } from './Components/user-info-edit/user-info-edit.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { PlaceInfoEditComponent } from './Components/place-info-edit/place-info-
     InvitationComponent,
     UserProfileComponent,
     UserInfoComponent,
-    PlaceInfoEditComponent
+    PlaceInfoEditComponent,
+    UserInfoEditComponent
 
   ],
   imports: [
