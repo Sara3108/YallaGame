@@ -50,6 +50,12 @@ cities=['Ismailia','Suez','Port-Said','Cairo'];
   getPhone(){
     return this.form.get('phone');
   }
+  getCountry(){
+    return this.form.get('country');
+  }
+  getCity(){
+    return this.form.get('city');
+  }
 
   getErrorMessageEmail() {
     return this.getEmail().hasError('required') ? 'Email is Required' :

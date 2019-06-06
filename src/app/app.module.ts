@@ -43,6 +43,7 @@ import { SmallStarRatingComponent } from './shared/small-star-rating/small-star-
 import { InvitationComponent } from './Components/invitation/invitation.component';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
 import { UserInfoComponent } from './Components/user-info/user-info.component';
+import { PlaceInfoEditComponent } from './Components/place-info-edit/place-info-edit.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { UserInfoComponent } from './Components/user-info/user-info.component';
     SmallStarRatingComponent,
     InvitationComponent,
     UserProfileComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    PlaceInfoEditComponent
 
   ],
   imports: [

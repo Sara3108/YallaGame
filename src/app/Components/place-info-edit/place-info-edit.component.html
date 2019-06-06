@@ -1,0 +1,72 @@
+<div class="modal fade" id="EditInfo" 
+ tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+
+ <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalScrollableTitle">Edit Place Info</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form [formGroup]="form">          
+      
+      <div class="modal-body">
+                  
+               <div class="mx-auto" style="width:80%">
+                    <mat-form-field>
+                      <input matInput placeholder="Place Name" [formControl]="getPlaceName()" required>
+                      <mat-error *ngIf="getPlaceName().invalid">{{getErrorMessagePlaceName()}}</mat-error>
+                    </mat-form-field>
+                  
+                      <mat-form-field>
+                        <input matInput placeholder="Email" [formControl]="getEmail()" required>
+                        <mat-error *ngIf="getEmail().invalid">{{getErrorMessageEmail()}}</mat-error>
+                      </mat-form-field>
+                
+                      <mat-form-field>
+                        <mat-label>Country</mat-label>
+                        <mat-select [formControl]="getCountry()">
+                          <mat-option *ngFor="let c of countries" [value]="c">
+                            {{c}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                
+                      <mat-form-field>
+                        <mat-label>City</mat-label>
+                        <mat-select [formControl]="getCity()">
+                          <mat-option *ngFor="let city of cities"  [value]="city">
+                            {{city}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+                      <mat-form-field>
+                          <input matInput placeholder="Working Hours" [formControl]="getWorkHours()">
+                      </mat-form-field>
+                
+                      <mat-form-field>
+                        <input matInput placeholder="Phone" [formControl]="getPhone()"  type="number">
+                      </mat-form-field>
+
+                      <mat-form-field>
+                          <input matInput placeholder="Location" [formControl]="getLocation()" type="text">
+                      </mat-form-field>
+                      
+            
+                      </div>
+                    </div> 
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Edit</button>
+      </div>
+    </form>
+    </div>
+  </div>
+
+
+
+
+    
+</div>

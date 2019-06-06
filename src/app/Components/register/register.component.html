@@ -46,7 +46,7 @@
 
       <mat-form-field>
         <mat-label>Country</mat-label>
-        <mat-select>
+        <mat-select [formControl]="getCountry()">
           <mat-option *ngFor="let c of countries" [value]="c">
             {{c}}
           </mat-option>
@@ -55,7 +55,7 @@
 
       <mat-form-field>
         <mat-label>City</mat-label>
-        <mat-select>
+        <mat-select [formControl]="getCity()">
           <mat-option *ngFor="let city of cities" [value]="city">
             {{city}}
           </mat-option>
@@ -63,8 +63,8 @@
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput placeholder="Phone"  type="number">
-      </mat-form-field>
+          <input matInput placeholder="Phone" [formControl]="getPhone()"  type="number">
+        </mat-form-field>
        
         <br>
         <button mat-raised-button color="warn" id="registerBtn">Register</button>
