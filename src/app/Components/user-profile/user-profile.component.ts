@@ -1,0 +1,18 @@
+import { Component, OnInit,ViewEncapsulation } from '@angular/core';
+
+@Component({
+  selector: 'app-user-profile',
+  templateUrl: './user-profile.component.html',
+  styleUrls: ['./user-profile.component.css'],
+  encapsulation: ViewEncapsulation.None
+  
+})
+export class UserProfileComponent implements OnInit {
+  reviewNumber: number [] = [1, 2, 3, 4, 5];
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

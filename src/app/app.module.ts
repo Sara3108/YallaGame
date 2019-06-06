@@ -41,6 +41,8 @@ import { InfoTabComponent } from './Components/info-tab/info-tab.component';
 import { InvitationModalComponent } from './Components/invitation-modal/invitation-modal.component';
 import { SmallStarRatingComponent } from './shared/small-star-rating/small-star-rating.component';
 import { InvitationComponent } from './Components/invitation/invitation.component';
+import { UserProfileComponent } from './Components/user-profile/user-profile.component';
+import { UserInfoComponent } from './Components/user-info/user-info.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,9 @@ import { InvitationComponent } from './Components/invitation/invitation.componen
     InfoTabComponent,
     InvitationModalComponent,
     SmallStarRatingComponent,
-    InvitationComponent
+    InvitationComponent,
+    UserProfileComponent,
+    UserInfoComponent
 
   ],
   imports: [
@@ -74,7 +78,9 @@ import { InvitationComponent } from './Components/invitation/invitation.componen
       { path: 'location', component: LocationPageComponent },
       { path: 'home', component: HomeFiltrationContainerComponent },
       { path: 'place-details', component: PlaceDetailsComponent },
-      {path:'notification' , component:InvitationComponent}
+      {path:'notification' , component:InvitationComponent},
+      {path:'user-profile' , component:UserProfileComponent}
+      
     ]),
     MatFormFieldModule,
     MatInputModule,

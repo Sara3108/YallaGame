@@ -1,0 +1,44 @@
+
+.mat-ink-bar {
+    background-color: rgb(231, 166, 24) !important ;
+}
+
+.mat-tab-label{
+    width: 100%;
+}
+
+#profile-img-div{
+    margin-top: 80px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+}
+#profile-img{
+    border: 6px solid white;
+    border-radius: 50%;
+    width: 150px;
+}
+
+
+
+
+mat-card{
+    padding: 10px;
+    margin: 10px;
+}
+
+mat-tab-group{
+    width: 90%;
+    margin: auto;
+}
+mat-tab{
+    width: 15%;
+}
+.place-profile{
+    width: 90%;
+    height: 200px;
+    color: white;
+    /* background-color: black; */
+    background-image: url('../../../assets/images/pbk3.png');
+    background-size: cover;
+}
