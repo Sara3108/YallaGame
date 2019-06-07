@@ -11,6 +11,11 @@ import { MatInputModule } from '@angular/material/input';
 import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatCardModule} from '@angular/material/card'; 
+import { StarRatingModule } from 'angular-star-rating';
+import { AgmCoreModule } from '@agm/core';
 
 //components
 import { AppComponent } from './app.component';
@@ -18,19 +23,10 @@ import { NavComponent } from './Components/nav/nav.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
-
-import { MatTabsModule } from '@angular/material/tabs';
 import { LocationPageComponent } from './Components/location-page/location-page.component';
 import { HomeFiltrationContainerComponent } from './Components/home-filtration-container/home-filtration-container.component';
 import { FiltrationComponent } from './Components/filtration/filtration.component';
 import { HomeComponent } from './Components/home/home.component';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatCardModule} from '@angular/material/card';
-import { StarRatingModule } from 'angular-star-rating'
-
-
-//services 
-import { AuthLoginService } from './services/auth-login.service';
 import { PlaceDetailsComponent } from './Components/place-details/place-details.component';
 import { ReviewComponent } from './shared/review/review.component';
 import { StarRatingComponent } from './shared/star-rating/star-rating.component';
@@ -45,6 +41,11 @@ import { UserProfileComponent } from './Components/user-profile/user-profile.com
 import { UserInfoComponent } from './Components/user-info/user-info.component';
 import { PlaceInfoEditComponent } from './Components/place-info-edit/place-info-edit.component';
 import { UserInfoEditComponent } from './Components/user-info-edit/user-info-edit.component';
+import { MapComponent } from './Components/map/map.component';
+
+
+//services 
+import { AuthLoginService } from './services/auth-login.service';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { UserInfoEditComponent } from './Components/user-info-edit/user-info-edi
     UserProfileComponent,
     UserInfoComponent,
     PlaceInfoEditComponent,
-    UserInfoEditComponent
+    UserInfoEditComponent,
+    MapComponent
 
   ],
   imports: [
@@ -99,7 +101,11 @@ import { UserInfoEditComponent } from './Components/user-info-edit/user-info-edi
     MatTabsModule,
     MatCheckboxModule,
     MatCardModule,
-    StarRatingModule.forRoot()
+    StarRatingModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDNJBXRkn6qZO1hknIesKifkpVBl5aBVJ0',
+      libraries: ['places']
+    })
 
   ],
   providers: [AuthLoginService],

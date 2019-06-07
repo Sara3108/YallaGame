@@ -1,0 +1,11 @@
+<!-- <agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  <agm-marker [latitude]="person_latitude" [longitude]="person_longitude" [label]="labelOptions"></agm-marker>
+</agm-map> -->
+
+<agm-map [latitude]="person_latitude" [longitude]="person_longitude" style="height: 300px">
+  <div *ngFor="let marker of Marker">
+    <agm-marker [latitude]="marker.latitude" [longitude]="marker.longitude"></agm-marker>
+    <!-- <agm-marker [latitude]="person_latitude" [longitude]="person_longitude"></agm-marker> -->
+  </div>
+</agm-map>
