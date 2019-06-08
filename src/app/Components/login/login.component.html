@@ -12,9 +12,10 @@
   <div class="example-container col-4 mx-auto shadow rounded">
       <mat-tab-group mat-align-tabs="center" dynamicHeight>
         <mat-tab label="Login as Preson">
-          <form [formGroup]='form' (ngSubmit)="signIn()">
+          <form [formGroup]='form' (ngSubmit)="UsersignIn()">
               <img id="profile" src="assets\images\logo.png"/>
             <h4><span>Person Login</span></h4>
+          <span class="alert alert-danger" *ngIf="UserErrorMsg">Invalid Username or password</span>
             
             <mat-form-field>
               <input matInput placeholder="Enter your email" [formControl]="getEmail()" required >
@@ -26,7 +27,8 @@
               <mat-error *ngIf="getPassword().invalid">{{getErrorMessagePwd()}}</mat-error>
               <mat-error *ngIf="err">Username or Password incorrect</mat-error>
             </mat-form-field>
-
+          <!-- <span style="color: black;" *ngIf="errorMsg">Username or Password incorrect</span> -->
+            
             <br>
             <button mat-raised-button id="loginBtn" color="warn">Login</button>
             <br>
@@ -35,12 +37,12 @@
         </form>
         </mat-tab>
 
-        <mat-tab label="Login as Place"><form [formGroup]='form' (ngSubmit)="signIn()">
+        <mat-tab label="Login as Place"><form [formGroup]='form' (ngSubmit)="PlaceSignIn()">
             <img id="profile" src="assets\images\logo.png"/>
           
           
           <h4><span>Place Login</span></h4>
-          
+          <span class="alert alert-danger" *ngIf="PlaceErrorMsg">Invalid Username or password</span>
           <mat-form-field>
             <input matInput placeholder="Enter your email" [formControl]="getEmail()" required >
             <mat-error *ngIf="getEmail().invalid">{{getErrorMessageEmail()}}</mat-error>
@@ -48,7 +50,7 @@
           <mat-form-field>
             <input matInput placeholder="Enter your Password" [formControl]="getPassword()" type="password" required>
             <mat-error *ngIf="getPassword().invalid">{{getErrorMessagePwd()}}</mat-error>
-          <mat-error *ngIf="err">Username or Password incorrect</mat-error>
+          
           </mat-form-field>
           <br>
           <button mat-raised-button id="loginBtn" color="warn">Login</button>

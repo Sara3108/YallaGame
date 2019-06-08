@@ -2,6 +2,7 @@ import { Component, OnInit ,ViewEncapsulation} from '@angular/core';
 import {FormControl, Validators, FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthLoginService } from '../../services/auth-login.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -10,12 +11,13 @@ import { AuthLoginService } from '../../services/auth-login.service';
   encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {
-
+ UserErrorMsg:boolean;
+ PlaceErrorMsg:boolean;
+ 
   constructor(
     private router: Router, 
     private authService: AuthLoginService) { }
 
-  invalidLogin: boolean; 
 
 
 
@@ -46,13 +48,31 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  signIn() {
-    this.authService.login(this.getEmail().value, this.getPassword().value)
+  UsersignIn() {
+    this.authService.userlogin(this.getEmail().value, this.getPassword().value)
       .subscribe(result => { 
         // if (result)
           this.router.navigate(['/location']);
-        // else  
-        //   this.invalidLogin = true; 
+
+      },(err:HttpErrorResponse)=>{
+        if(err.status==401){
+         console.log('errrrrrrrrrrrrrrrrrrrr')
+         this.UserErrorMsg=true;
+        }
+      });
+  }
+
+  PlaceSignIn() {
+    this.authService.placelogin(this.getEmail().value, this.getPassword().value)
+      .subscribe(result => { 
+        // if (result)
+          this.router.navigate(['/place-details']);
+   
+      },(err:HttpErrorResponse)=>{
+        if(err.status==401){
+         console.log('errrrrrrrrrrrrrrrrrrrr')
+         this.PlaceErrorMsg=true;
+        }
       });
   }
 

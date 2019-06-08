@@ -10,11 +10,18 @@
   <div class="sticky-top">
     <app-nav></app-nav>
   </div>
-  <p class="m-2" style="flex-grow: 2">Places in <i> Ismaillia </i> <i>{{user_selected_city}}</i></p>
+  <div class="row p-2 ">
+    <div class="col-md-8 my-auto">
+        <p class="m-2" style="flex-grow: 2">Places in <i> {{Ismaillia}} </i> / <i>{{user_selected_city}}</i></p>
+    </div>
+    <div class="col-md-3 my-auto">
+        <button mat-raised-button id="changeArea" color="warn">Change Area</button>
+    </div>
+  </div>
+  
 
 
-
-  <div class="row m-2">
+  <div class="row " style="margin: 3px; margin-top: 0; padding-top: 0;">
     <div class="col-md-3">
       <app-filtration></app-filtration>
     </div>
