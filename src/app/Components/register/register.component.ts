@@ -82,13 +82,12 @@ errMsg:boolean;
   }
   getErrorMessagePhone() {
     return this.getPhone().hasError('minLength')||
-    this.getPhone().hasError('maxLength') ? 'Phone must be 11 digits' : '';
+    this.getPhone().hasError('maxLength') ? '' : 'Phone must be 11 digits';
   }
   
   
   /////// on submit form
   signup(){
-  
 
     if(this.getUser().value=='Person'){
       this.authService.userRegister(this.getEmail().value, this.getPassword().value,

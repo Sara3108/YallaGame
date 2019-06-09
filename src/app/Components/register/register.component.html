@@ -63,7 +63,7 @@
       </mat-form-field>
 
       <mat-form-field>
-          <input matInput placeholder="Phone" [formControl]="getPhone()"  type="number">
+          <input matInput placeholder="Phone" [formControl]="getPhone()">
           <mat-error *ngIf="getPhone().invalid">{{getErrorMessagePhone()}}</mat-error> 
       </mat-form-field>
        
