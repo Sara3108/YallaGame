@@ -31,7 +31,7 @@ export class AuthLoginService {
         }
       }),
         
-      catchError(this.handleError)
+      // catchError(this.handleError)
     );
   }
 
@@ -43,7 +43,7 @@ export class AuthLoginService {
         }
       }),
         
-      catchError(this.handleError)
+      // catchError(this.handleError)
     );
   }
 
@@ -62,7 +62,7 @@ export class AuthLoginService {
 
       }),
         
-      catchError(this.handleError)
+      // catchError(this.handleError)
     );
   }
 
@@ -81,8 +81,15 @@ export class AuthLoginService {
 
       }),
         
-      catchError(this.handleError)
+      // catchError(this.handleError)
     );
+  }
+  findPlaces(city:string,userID:number){
+    
+    this.http.post('http://localhost:60354/api/Users2',{
+      userId: userID,
+      city: city
+    });
   }
 
 //////////////////////////////////////////////
@@ -97,6 +104,8 @@ export class AuthLoginService {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     return currentUser.token;
   }
+
+ 
 
   logout() {
     localStorage.removeItem('currentUser');

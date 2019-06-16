@@ -2,35 +2,41 @@
     
   <div id="nav">
       <img src="assets\images\yallagame2.png"/>
-      <a class="navA" style="color: white" routerLink="">Logout</a>    
+      <a class="navA" style="color: white" (click)="logOut()">Logout</a>    
   </div>
   <br><br>
-  <h2>Find Your Location </h2>
+  <h2>Find Your Location</h2>
 
   <div class="example-container col-4 mx-auto shadow rounded bg-white p-5 justify-content-center">
   
-    <h4 id="h4">Select Your Area to See Places for Fun</h4>
+    <h3 id="h3">Select Your Area to See Places for Fun</h3>
     
     <form >
 
       <div class="form-group text-center">
+
+          <select class="custom-select" [formControl]="getCountry()">
+              <option>Select Your Country</option>
+                <option *ngFor="let c of Country">
+                  {{c}}
+                </option>
+              <mat-error *ngIf="getCountry().invalid">{{getErrorMessageCountry()}}</mat-error>
+                
+            </select>
         
-          <select class="custom-select">
+          <select class="custom-select" [formControl]="getCity()">
             <option>Select Your City</option>
             <option *ngFor="let city of cities">
                 {{city}}
             </option>
+            <mat-error *ngIf="getCity().invalid">{{getErrorMessageCity()}}</mat-error>
+            
           </select>
         
         
-          <select class="custom-select">
-            <option>Select Your Area</option>
-              <option *ngFor="let area of areas">
-                {{area}}
-              </option>
-          </select>
+         
           <br>
-          <button mat-raised-button id="findBtn" color="warn" (click)="navigate()">Find Places</button>
+          <button mat-raised-button id="findBtn" color="warn" (click)="FindPlaces()">Find Places</button>
           
         
       </div>
