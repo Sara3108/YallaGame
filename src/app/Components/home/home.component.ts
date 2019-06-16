@@ -18,4 +18,24 @@ places :any[];
     })
   }
 
+  up3Filter(){
+    this.service.getAllPlaces().subscribe(res=>{
+      
+      this.places=res as any[];
+      this.places=this.places.filter(r=>r.rate>=2);
+      console.log(this.places);
+    })
+  }
+
+  up5Filter(){
+    this.service.getAllPlaces().subscribe(res=>{
+      
+      this.places=res as any[];
+      this.places=this.places.filter(r=>r.rate>=4);
+      console.log(this.places);
+    })
+
+  }
+
+
 }

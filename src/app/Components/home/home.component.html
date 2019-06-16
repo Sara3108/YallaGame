@@ -12,14 +12,19 @@
   </div>
 
   <mat-card *ngFor="let p of places">
-    <div class="row">
+    <div class="row m-auto">
         <div class="col-md-2">
             <img id="i" class="rounded float-left" src="assets\images\place.jpg"/>
         </div>
-        <div class="col-md-9">
-          <a><h2 id="placeName">{{p.name}}</h2></a>
-          <p>some details</p>
-          <p>rating</p>
+        <div class="col-md-6">
+          <a [routerLink]= "['/place-details',p.placeId]" ><h2 id="placeName" style="margin-top: 0;">{{p.name}}</h2></a>
+          <p>Open Hour : {{p.openHour}}</p>
+          <p>Closed Hour : {{p.closeHour}}</p>
+          
+        </div>
+        <div class="col-md-2 m-auto">
+          <app-star-rating class="d-flex m-auto" style="widows: 50%;"></app-star-rating>
+
         </div>
     </div>
     
