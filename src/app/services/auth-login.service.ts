@@ -88,7 +88,7 @@ export class AuthLoginService {
     
     this.http.post('http://localhost:60354/api/Users2',{
       userId: userID,
-      city: city
+      currentCity: city
     });
   }
 

@@ -51,7 +51,7 @@ export class LocationPageComponent implements OnInit {
     let token = localStorage.getItem('currentUser');
     let decodedToken = helper.decodeToken(token);
     console.log(decodedToken);
-    this.service.findPlaces(this.getCity().value,decodedToken.userId);
+    this.service.findPlaces(this.getCity().value,decodedToken.nameid);
     this.router.navigate(['/home']);
   }
 
