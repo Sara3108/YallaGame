@@ -55,10 +55,8 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/location']);
 
       },(err:HttpErrorResponse)=>{
-        if(err.status==401){
-         console.log('errrrrrrrrrrrrrrrrrrrr')
-         this.UserErrorMsg=true;
-        }
+        this.UserErrorMsg=true;
+        console.log('errrrrrrrrrrrrrrrrrrrr');
       });
   }
 
