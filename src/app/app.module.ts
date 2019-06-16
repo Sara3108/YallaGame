@@ -83,7 +83,7 @@ import { AuthLoginService } from './services/auth-login.service';
       { path: 'register', component: RegisterComponent },
       { path: 'location', component: LocationPageComponent },
       { path: 'home', component: HomeFiltrationContainerComponent },
-      { path: 'place-details', component: PlaceDetailsComponent },
+      { path: 'place-details/:placeId', component: PlaceDetailsComponent },
       {path:'notification' , component:InvitationComponent},
       {path:'user-profile' , component:UserProfileComponent}
       

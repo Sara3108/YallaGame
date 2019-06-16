@@ -90,7 +90,7 @@ errMsg:boolean;
   signup(){
 
     if(this.getUser().value=='Person'){
-      this.authService.userRegister(this.getEmail().value, this.getPassword().value,
+      this.authService.userRegister(this.getUserName().value, this.getPassword().value,
       this.getEmail().value,this.getCountry().value,this.getCity().value, this.getPhone().value)
        .subscribe(result => { 
          // if (result)
@@ -103,7 +103,6 @@ errMsg:boolean;
           console.log('errrrrrrrrrrrrrrrrrrrr 401')
           this.errMsg=true;
          }
-        
        });
     }
     else if(this.getUser().value=='Place'){

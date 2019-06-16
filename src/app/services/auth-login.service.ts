@@ -9,6 +9,7 @@ import { map, catchError } from 'rxjs/operators';
 export class AuthLoginService {
   // serverUrl = 'http://localhost/dev/blogger/';
   errorData: {};
+<<<<<<< HEAD
   register: {
     "userName": "string",
     "password": "string",
@@ -17,6 +18,9 @@ export class AuthLoginService {
     "city": "string",
     "phone": "string"
   }
+=======
+
+>>>>>>> 882426a978eef70277ab405a25bcd2ff390b2088
 
   constructor(private http: HttpClient) { }
 
@@ -49,7 +53,12 @@ export class AuthLoginService {
             localStorage.setItem('currentUser', JSON.stringify(user));
           }
       }),
+<<<<<<< HEAD
       catchError(this.handleError)
+=======
+        
+      // catchError(this.handleError)
+>>>>>>> 882426a978eef70277ab405a25bcd2ff390b2088
     );
   }
 
@@ -60,9 +69,15 @@ export class AuthLoginService {
           localStorage.setItem('currentUser', JSON.stringify(user));
         }
       }),
+<<<<<<< HEAD
 
         catchError(this.handleError)
       );
+=======
+        
+      // catchError(this.handleError)
+    );
+>>>>>>> 882426a978eef70277ab405a25bcd2ff390b2088
   }
 
   userRegister(username: string, password: string, email: string,
@@ -79,9 +94,15 @@ export class AuthLoginService {
       .pipe(map(user => {
 
       }),
+<<<<<<< HEAD
 
         catchError(this.handleError)
       );
+=======
+        
+      // catchError(this.handleError)
+    );
+>>>>>>> 882426a978eef70277ab405a25bcd2ff390b2088
   }
 
   PlaceRegister(username: string, password: string, email: string,
@@ -98,9 +119,21 @@ export class AuthLoginService {
       .pipe(map(user => {
 
       }),
+<<<<<<< HEAD
 
         catchError(this.handleError)
       );
+=======
+        
+      // catchError(this.handleError)
+    );
+>>>>>>> 882426a978eef70277ab405a25bcd2ff390b2088
+  }
+  findPlaces(city:string,id:number){
+    
+    this.http.post('http://localhost:60354/api/Users2/{id}',{
+      currentCity: city
+    });
   }
 
   //////////////////////////////////////////////
@@ -115,6 +148,8 @@ export class AuthLoginService {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     return currentUser.token;
   }
+
+ 
 
   logout() {
     localStorage.removeItem('currentUser');
