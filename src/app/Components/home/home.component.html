@@ -11,13 +11,13 @@
 
   </div>
 
-  <mat-card>
+  <mat-card *ngFor="let p of places">
     <div class="row">
         <div class="col-md-2">
-            <img class="rounded float-left" src="assets\images\place.jpg"/>
+            <img id="i" class="rounded float-left" src="assets\images\place.jpg"/>
         </div>
         <div class="col-md-9">
-          <h2 id="placeName">Place Name</h2>
+          <a><h2 id="placeName">{{p.name}}</h2></a>
           <p>some details</p>
           <p>rating</p>
         </div>

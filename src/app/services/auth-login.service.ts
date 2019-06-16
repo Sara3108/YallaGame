@@ -9,14 +9,7 @@ import { map, catchError } from 'rxjs/operators';
 export class AuthLoginService {
   // serverUrl = 'http://localhost/dev/blogger/';
   errorData: {};
-  register:{
-    "userName": "string",
-  "password": "string",
-  "email": "string",
-  "country": "string",
-  "city": "string",
-  "phone": "string"
-  }
+
 
   constructor(private http: HttpClient) { }
 
@@ -84,10 +77,9 @@ export class AuthLoginService {
       // catchError(this.handleError)
     );
   }
-  findPlaces(city:string,userID:number){
+  findPlaces(city:string,id:number){
     
-    this.http.post('http://localhost:60354/api/Users2',{
-      userId: userID,
+    this.http.post('http://localhost:60354/api/Users2/{id}',{
       currentCity: city
     });
   }
