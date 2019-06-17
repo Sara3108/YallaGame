@@ -58,11 +58,9 @@ isLoading:boolean=false;
           this.router.navigate(['/location']);
 
       },(err:HttpErrorResponse)=>{
+        this.UserErrorMsg=true;
         this.isLoading=false;
-        if(err.status==401){
-         console.log('errrrrrrrrrrrrrrrrrrrr')
-         this.UserErrorMsg=true;
-        }
+        console.log('errrrrrrrrrrrrrrrrrrrr');
       });
   }
 
