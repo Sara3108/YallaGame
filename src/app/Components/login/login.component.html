@@ -7,9 +7,11 @@
       
   </div>
   <h2>WELCOME</h2>
+  
   <h5>This will be an amazing fun just login and enjoy <mat-icon id="enjoy">sentiment_satisfied_alt</mat-icon></h5>
 
   <div class="example-container col-4 mx-auto shadow rounded">
+    
       <mat-tab-group mat-align-tabs="center" dynamicHeight>
         <mat-tab label="Login as Preson">
           <form [formGroup]='form' (ngSubmit)="UsersignIn()">
@@ -58,6 +60,9 @@
         </form>
       </mat-tab>
     </mat-tab-group>
+    <!-- <mat-spinner class="spinner" *ngIf="isLoading"></mat-spinner> -->
+    
   </div>
+  <div class="loading" *ngIf="isLoading">Loading&#8230;</div>
  
 </div>

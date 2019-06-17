@@ -16,6 +16,7 @@ users=["Person","Place"];
 countries=['Egypt'];
 cities=['Ismailia','Suez','Port-Said','Cairo'];
 errMsg:boolean;
+isLoading:boolean=false;
   constructor( private router: Router, 
     private authService: AuthLoginService) { }
 
@@ -90,6 +91,7 @@ errMsg:boolean;
   signup(){
 
     if(this.getUser().value=='Person'){
+      this.isLoading=true;
       this.authService.userRegister(this.getUserName().value, this.getPassword().value,
       this.getEmail().value,this.getCountry().value,this.getCity().value, this.getPhone().value)
        .subscribe(result => { 
@@ -98,14 +100,16 @@ errMsg:boolean;
          // else  
        },(err)=>{
         console.log('there is error happen');
-         
+        this.isLoading=false;
          if(err.status==401){
           console.log('errrrrrrrrrrrrrrrrrrrr 401')
           this.errMsg=true;
+         
          }
        });
     }
     else if(this.getUser().value=='Place'){
+      this.isLoading=true;
       this.authService.PlaceRegister(this.getUserName().value, this.getPassword().value,
       this.getEmail().value,this.getCountry().value,this.getCity().value, this.getPhone().value)
        .subscribe(result => { 
@@ -113,6 +117,7 @@ errMsg:boolean;
            this.router.navigate(['/']);
         
         },(err:HttpErrorResponse)=>{
+          this.isLoading=false;
           if(err.status==401){
            console.log('errrrrrrrrrrrrrrrrrrrr')
            this.errMsg=true;
@@ -122,6 +127,9 @@ errMsg:boolean;
 
    
   }
+ 
+
+  
 
 
   ngOnInit() {
