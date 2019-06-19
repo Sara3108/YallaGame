@@ -13,6 +13,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class LoginComponent implements OnInit {
  UserErrorMsg:boolean;
  PlaceErrorMsg:boolean;
+isLoading:boolean=false;
+ 
  
   constructor(
     private router: Router, 
@@ -49,6 +51,7 @@ export class LoginComponent implements OnInit {
   }
 
   UsersignIn() {
+    this.isLoading=true;
     this.authService.userlogin(this.getEmail().value, this.getPassword().value)
       .subscribe(result => { 
         // if (result)
@@ -56,21 +59,24 @@ export class LoginComponent implements OnInit {
 
       },(err:HttpErrorResponse)=>{
         this.UserErrorMsg=true;
+        this.isLoading=false;
         console.log('errrrrrrrrrrrrrrrrrrrr');
       });
   }
 
   PlaceSignIn() {
+    this.isLoading=true;
     this.authService.placelogin(this.getEmail().value, this.getPassword().value)
       .subscribe(result => { 
         // if (result)
-          this.router.navigate(['/place-details']);
+          // this.router.navigate(['/place-details']);
    
       },(err:HttpErrorResponse)=>{
-        if(err.status==401){
+        this.isLoading=false;
+        
          console.log('errrrrrrrrrrrrrrrrrrrr')
          this.PlaceErrorMsg=true;
-        }
+        
       });
   }
 

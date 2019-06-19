@@ -10,21 +10,6 @@
     justify-content: space-between;
 }
 
-/* Styles for tab labels */
-/* .mat-tab-label {
-    min-width: 25px !important;
-    padding: 5px;
-    background-color: transparent;
-    font-weight: 700;
-}
-
-/* Styles for the active tab label */
-/* .mat-tab-label.mat-tab-label-active {
-    min-width: 25px !important;
-    padding: 5px;
-    background-color: transparent;
-    font-weight: 700;
-} */ 
 
 /* Styles for the ink bar */
 .mat-ink-bar {
@@ -35,12 +20,16 @@
     float: right;
     color: white;
     font-weight: bold;
-    font-size: 16px
+    font-size: 16px;
+    padding: 2%;
+    cursor: pointer;
+    text-align: left;
+    padding-bottom: 5px;
 }
 hr{
     display: inline;
 }
-h4 {
+#placeLogin {
     width: 100%; 
     text-align: center; 
     border-bottom: 1px solid gray;
@@ -53,7 +42,7 @@ h4 {
      background-color: rgb(231, 166, 24);
  }
  
- h4 span { 
+ #placeLogin span { 
      background:#fff; 
      padding:0 10px; 
  }
@@ -87,30 +76,25 @@ h4 {
     margin:10px auto;
      }
 
+  
+
      #logo{
         width: 100px;
         margin: 10px;
     }
 
-  h2,h5{
+  #h2Welcome,#h5Info{
       text-align: center;
       color: white;
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
       
   }
-  h2{
+  #h2Welcome{
       color: rgb(231, 166, 24);
       font-weight: bold;
   }
   
-  a{
-      padding: 2%;
-      cursor: pointer;
-      text-align: left;
-      padding-bottom: 5px;
-      
-  }
-  a:hover{
+  .navA:hover{
       text-decoration: underline;
   }
   /* h2{
@@ -120,37 +104,3 @@ h4 {
       font-family:cursive;
       font-weight: bolder;
   } */
-
-  .shadow
-{
-    position:relative;
-    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-}
-.shadow:before, .shadow:after
-{
-    content:"";
-    position:absolute;
-    z-index:-1;
-    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
-    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
-    box-shadow:0 0 20px rgba(0,0,0,0.8);
-    top:0;
-    bottom:0;
-    left:10px;
-    right:10px;
-    -moz-border-radius:100px / 10px;
-    border-radius:100px / 10px;
-}
-.shadow:after
-{
-    right:10px;
-    left:auto;
-    -webkit-transform:skew(8deg) rotate(3deg);
-       -moz-transform:skew(8deg) rotate(3deg);
-        -ms-transform:skew(8deg) rotate(3deg);
-         -o-transform:skew(8deg) rotate(3deg);
-            transform:skew(8deg) rotate(3deg);
-}
-

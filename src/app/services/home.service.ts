@@ -10,7 +10,7 @@ export class HomeService {
 
 
 
-  getAllPlaces(){
-   return this.http.get('http://localhost:60354/api/Places2');
+  getAllPlaces(id: number){
+   return this.http.get('http://localhost:60354/api/Places2/GetPlacesbyid/'+id);
   }
 }

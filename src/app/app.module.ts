@@ -42,6 +42,7 @@ import { UserInfoComponent } from './Components/user-info/user-info.component';
 import { PlaceInfoEditComponent } from './Components/place-info-edit/place-info-edit.component';
 import { UserInfoEditComponent } from './Components/user-info-edit/user-info-edit.component';
 import { MapComponent } from './Components/map/map.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 //services 
@@ -72,7 +73,8 @@ import { AuthLoginService } from './services/auth-login.service';
     UserInfoComponent,
     PlaceInfoEditComponent,
     UserInfoEditComponent,
-    MapComponent
+    MapComponent,
+    
 
   ],
   imports: [
@@ -100,6 +102,7 @@ import { AuthLoginService } from './services/auth-login.service';
     HttpClientModule,
     MatTabsModule,
     MatCheckboxModule,
+    MatProgressSpinnerModule,
     MatCardModule,
     StarRatingModule.forRoot(),
     AgmCoreModule.forRoot({

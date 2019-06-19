@@ -10,6 +10,7 @@ export class GamesTabComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

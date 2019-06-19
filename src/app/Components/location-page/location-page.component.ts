@@ -14,6 +14,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LocationPageComponent implements OnInit {
   Country=['Egypt'];
   cities=['Ismailia','Suez','Port-Said','Cairo'];
+isLoading:boolean=false;
+
   
   form= new FormGroup({
     Country : new FormControl('', [Validators.required]),
@@ -47,12 +49,25 @@ export class LocationPageComponent implements OnInit {
   }
 
   FindPlaces(){
+  this.isLoading=true;
+
     let helper = new JwtHelperService();
-    let token = localStorage.getItem('currentUser');
+    let token = this.service.getAuthorizationToken();
     let decodedToken = helper.decodeToken(token);
     console.log(decodedToken);
-    this.service.findPlaces(this.getCity().value,decodedToken.nameid);
-    this.router.navigate(['/home']);
+    this.service.findPlaces(this.getCity().value,decodedToken.nameid).subscribe(res=>{
+      this.router.navigate(['/home']);
+    },err=>{
+      this.isLoading=false;
+    });
+    // console.log(this.getCity().value);
+    // console.log(decodedToken.nameid);
+    // // console.log(this.service.findPlaces(this.getCity().value,decodedToken.nameid));
+
+    
+
+
+    
   }
 
 
