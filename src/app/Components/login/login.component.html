@@ -6,9 +6,9 @@
       <a class="navA" style="color: white" routerLink="/register">Register</a>
       
   </div>
-  <h2>WELCOME</h2>
+  <h2 id="h2Welcome">WELCOME</h2>
   
-  <h5>This will be an amazing fun just login and enjoy <mat-icon id="enjoy">sentiment_satisfied_alt</mat-icon></h5>
+  <h5 id="h5Info">This will be an amazing fun just login and enjoy <mat-icon id="enjoy">sentiment_satisfied_alt</mat-icon></h5>
 
   <div class="example-container col-4 mx-auto shadow rounded">
     
@@ -16,7 +16,7 @@
         <mat-tab label="Login as Preson">
           <form [formGroup]='form' (ngSubmit)="UsersignIn()">
               <img id="profile" src="assets\images\logo.png"/>
-            <h4><span>Person Login</span></h4>
+            <h4 id="placeLogin"><span>Person Login</span></h4>
           <span class="alert alert-danger" *ngIf="UserErrorMsg">Invalid Username or password</span>
             
             <mat-form-field>
@@ -43,7 +43,7 @@
             <img id="profile" src="assets\images\logo.png"/>
           
           
-          <h4><span>Place Login</span></h4>
+          <h4 id="placeLogin"><span>Place Login</span></h4>
           <span class="alert alert-danger" *ngIf="PlaceErrorMsg">Invalid Username or password</span>
           <mat-form-field>
             <input matInput placeholder="Enter your email" [formControl]="getEmail()" required >
@@ -64,5 +64,13 @@
     
   </div>
   <div class="loading" *ngIf="isLoading">Loading&#8230;</div>
- 
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
 </div>
