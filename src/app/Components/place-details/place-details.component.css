@@ -37,7 +37,7 @@ mat-tab{
 .place-profile{
     width: 90%;
     height: 200px;
-    color: white;
+    /* color: white; */
     /* background-color: black; */
     background-image: url('../../../assets/images/pbk3.png');
     background-size: cover;

@@ -9,6 +9,17 @@ import { map, catchError } from 'rxjs/operators';
 export class AuthLoginService {
   // serverUrl = 'http://localhost/dev/blogger/';
   errorData: {};
+<<<<<<< HEAD
+  register: {
+    "userName": "string",
+    "password": "string",
+    "email": "string",
+    "country": "string",
+    "city": "string",
+    "phone": "string"
+  }
+=======
+>>>>>>> 21261a9c1e2b03a5600bbd906524711c83c75f69
 
   constructor(private http: HttpClient) { }
 
@@ -41,8 +52,16 @@ export class AuthLoginService {
             localStorage.setItem('currentUser', JSON.stringify(user));
           }
       }),
+<<<<<<< HEAD
+
+      catchError(this.handleError)
+
+        
+      // catchError(this.handleError)6a978eef70277ab405a25bcd2ff390b2088
+=======
         
       // catchError(this.handleError)
+>>>>>>> 21261a9c1e2b03a5600bbd906524711c83c75f69
     );
   }
 
@@ -53,9 +72,20 @@ export class AuthLoginService {
           localStorage.setItem('currentPlace', JSON.stringify(user));
         }
       }),
+<<<<<<< HEAD
+
+
+        catchError(this.handleError)
+      );
+
+        
+      // catchError(this.handleError)
+
+=======
         
       // catchError(this.handleError)
     );
+>>>>>>> 21261a9c1e2b03a5600bbd906524711c83c75f69
   }
 
   userRegister(username: string, password: string, email: string,
@@ -72,9 +102,17 @@ export class AuthLoginService {
       .pipe(map(user => {
 
       }),
+<<<<<<< HEAD
+
+        catchError(this.handleError)
+      );
+        
+      // catchError(this.handleError)
+=======
         
       // catchError(this.handleError)
     );
+>>>>>>> 21261a9c1e2b03a5600bbd906524711c83c75f69
   }
 
   PlaceRegister(username: string, password: string, email: string,
@@ -91,9 +129,17 @@ export class AuthLoginService {
       .pipe(map(user => {
 
       }),
+<<<<<<< HEAD
+
+        catchError(this.handleError)
+      );
+      // catchError(this.handleError)
+    
+=======
         
       // catchError(this.handleError)
     );
+>>>>>>> 21261a9c1e2b03a5600bbd906524711c83c75f69
   }
   findPlaces(city:string,id:number){  
    return this.http.put('http://localhost:60354/api/Users2/Putcurrentlocation/'+id+'/'+city,{})

@@ -18,6 +18,14 @@
         </div>
         <div class="col-md-6">
           <a [routerLink]= "['/place-details',p.placeId]" ><h2 id="placeName" style="margin-top: 0;">{{p.name}}</h2></a>
+<<<<<<< HEAD
+          <p>Open Hour : {{p.openHour}}</p>
+          <p>Closed Hour : {{p.closeHour}} {{p.rate}}</p>
+          
+        </div>
+        <div class="col-md-2 m-auto">
+          <app-star-rating class="d-flex m-auto" [starsCount]="p.rate" style="widows: 50%;"></app-star-rating>
+=======
           <p *ngIf="p.openHour!=NULL">Open Hour : {{p.openHour}}</p>
           <p *ngIf="p.closeHour!=NULL">Closed Hour : {{p.closeHour}}</p>
           
@@ -26,6 +34,7 @@
           <app-star-rating class="d-flex m-auto" style="widows: 50%;" [starsCount]="p.rate">
 
           </app-star-rating>
+>>>>>>> 21261a9c1e2b03a5600bbd906524711c83c75f69
 
         </div>
     </div>
