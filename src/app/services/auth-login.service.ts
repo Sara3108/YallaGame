@@ -9,14 +9,6 @@ import { map, catchError } from 'rxjs/operators';
 export class AuthLoginService {
   // serverUrl = 'http://localhost/dev/blogger/';
   errorData: {};
-  register: {
-    "userName": "string",
-    "password": "string",
-    "email": "string",
-    "country": "string",
-    "city": "string",
-    "phone": "string"
-  }
 
   constructor(private http: HttpClient) { }
 
