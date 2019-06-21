@@ -9,7 +9,7 @@ export class PlaceDetailsService {
   constructor(private http:HttpClient) { }
 
   getPlace(placeId:number){
-    return this.http.get('http://localhost:60354//api/Places2/'+placeId);
+    return this.http.get('http://localhost:60354/api/Places2/'+placeId);
   }
 
 }
