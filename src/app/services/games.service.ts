@@ -9,6 +9,6 @@ export class GamesService {
   constructor(private http: HttpClient) { }
 
   getAllGames(placeId:number){
-    return this.http.get('http://localhost:60354/api/GameInPlaces2/findByGame/'+placeId);
+    return this.http.get('http://localhost:60354/api/Games2/GetGamesByPlace/'+placeId);
   }
 }

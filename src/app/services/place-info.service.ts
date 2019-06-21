@@ -17,4 +17,10 @@ export class PlaceInfoService {
         this.place=res ;
       })
   }
+
+
+editPlaceInfo(){
+  
+}
+
 }

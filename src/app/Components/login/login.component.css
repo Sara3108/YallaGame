@@ -1,8 +1,9 @@
 
 #container{
     background-image: url("../../../assets/images/bk.png");
-    width: 100%;
+    width: 100vw;
     background-size: cover;
+    height: 100vh;
 }
 .nav{
     /* display: flex;  */

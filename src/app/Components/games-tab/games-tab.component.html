@@ -7,19 +7,19 @@
   </div>
 
 
-  <ul class="list-group list-group-flush" style="margin-bottom: 0; margin: 2px;">
+  <ul class="list-group list-group-flush" style="margin-bottom: 0; margin: 2px;" *ngFor="let g of games">
     <li class="list-group-item">
       <div class="row">
         <div class="col-md-2">
           <img class="rounded float-left" src="assets\images\place.jpg" />
         </div>
         <div class="col-md-5">
-          <h3 id="placeName">Game Name</h3>
-          <p>some details some details about game isssssssssssssssssssssssssssskxxxxxndj</p>
+          <h3 id="placeName">{{g.name}}</h3>
+          <p>{{g.describtion}}</p>
 
         </div>
         <div class="col-md-3 m-auto text-center" style="margin:auto">
-          <app-star-rating class="d-flex" style="widows: 50%;"></app-star-rating>
+          <app-star-rating class="d-flex" style="widows: 50%;" [starsCount]="g.rate"></app-star-rating>
 
         </div>
         <div class="col-md-2 m-auto text-center" style="margin:auto">

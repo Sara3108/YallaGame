@@ -16,7 +16,7 @@ places :any[];
   ngOnInit() {
     let helper = new JwtHelperService();
 
-   let token = this.userService.getAuthorizationToken();
+   let token = this.userService.getUserAuthorizationToken();
    let decodedToken = helper.decodeToken(token);
 
     this.service.getAllPlaces(decodedToken.nameid).subscribe(res=>{

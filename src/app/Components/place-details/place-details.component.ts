@@ -2,6 +2,7 @@ import { Component, OnInit ,ViewEncapsulation} from '@angular/core';
 import { PlaceDetailsService } from 'src/app/services/place-details.service';
 import { ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-place-details',
   templateUrl: './place-details.component.html',
@@ -24,7 +25,7 @@ export class PlaceDetailsComponent implements OnInit {
     this.service.getPlace(this.placeId).subscribe(res=>{
       this.place=res ;
       this.loading=true;
-      console.log(this.place);
+      // console.log(this.place);
     })
 
   }
