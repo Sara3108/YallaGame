@@ -67,6 +67,7 @@
           <mat-error *ngIf="getPhone().invalid">{{getErrorMessagePhone()}}</mat-error> 
       </mat-form-field>
        
+      <app-register-map [searchValue]="city"></app-register-map>
         <br>
         <button mat-raised-button color="warn" id="registerBtn">
             Register 
