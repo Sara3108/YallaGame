@@ -51,6 +51,7 @@ import { AuthLoginService } from './services/auth-login.service';
 import { RegisterMapComponent } from './Components/register-map/register-map.component';
 import { from } from 'rxjs';
 import {} from '@';
+import { WelcomePageComponent } from './Components/welcome-page/welcome-page.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import {} from '@';
     UserInfoEditComponent,
     MapComponent,
     RegisterMapComponent,
+    WelcomePageComponent,
 
 
   ],
