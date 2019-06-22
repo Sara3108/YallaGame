@@ -50,7 +50,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AuthLoginService } from './services/auth-login.service';
 import { RegisterMapComponent } from './Components/register-map/register-map.component';
 import { from } from 'rxjs';
-import {} from '@';
+
 
 @NgModule({
   declarations: [
