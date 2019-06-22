@@ -1,3 +1,4 @@
+/// <reference types="@types/googlemaps" /> 
 //modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -12,8 +13,8 @@ import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatCardModule} from '@angular/material/card'; 
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCardModule } from '@angular/material/card';
 import { StarRatingModule } from 'angular-star-rating';
 import { AgmCoreModule } from '@agm/core';
 
@@ -42,11 +43,14 @@ import { UserInfoComponent } from './Components/user-info/user-info.component';
 import { PlaceInfoEditComponent } from './Components/place-info-edit/place-info-edit.component';
 import { UserInfoEditComponent } from './Components/user-info-edit/user-info-edit.component';
 import { MapComponent } from './Components/map/map.component';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 //services 
 import { AuthLoginService } from './services/auth-login.service';
+import { RegisterMapComponent } from './Components/register-map/register-map.component';
+import { from } from 'rxjs';
+import {} from '@';
 
 @NgModule({
   declarations: [
@@ -74,7 +78,8 @@ import { AuthLoginService } from './services/auth-login.service';
     PlaceInfoEditComponent,
     UserInfoEditComponent,
     MapComponent,
-    
+    RegisterMapComponent,
+
 
   ],
   imports: [
@@ -86,9 +91,9 @@ import { AuthLoginService } from './services/auth-login.service';
       { path: 'location', component: LocationPageComponent },
       { path: 'home', component: HomeFiltrationContainerComponent },
       { path: 'place-details/:placeId', component: PlaceDetailsComponent },
-      {path:'notification' , component:InvitationComponent},
-      {path:'user-profile' , component:UserProfileComponent}
-      
+      { path: 'notification', component: InvitationComponent },
+      { path: 'user-profile', component: UserProfileComponent }
+
     ]),
     MatFormFieldModule,
     MatInputModule,
@@ -104,9 +109,11 @@ import { AuthLoginService } from './services/auth-login.service';
     MatCheckboxModule,
     MatProgressSpinnerModule,
     MatCardModule,
+    
     StarRatingModule.forRoot(),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDNJBXRkn6qZO1hknIesKifkpVBl5aBVJ0',
+      // apiKey: 'AIzaSyDNJBXRkn6qZO1hknIesKifkpVBl5aBVJ0',
+      apiKey: 'AIzaSyCFEgVmpwz1ALDpXbz9y7yQNRbkqAwVeb8',
       libraries: ['places']
     })
 

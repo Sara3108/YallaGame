@@ -41,8 +41,9 @@ export class AuthLoginService {
             localStorage.setItem('currentUser', JSON.stringify(user));
           }
       }),
+      catchError(this.handleError)
+
         
-      // catchError(this.handleError)
     );
   }
 
@@ -53,9 +54,10 @@ export class AuthLoginService {
           localStorage.setItem('currentPlace', JSON.stringify(user));
         }
       }),
-        
-      // catchError(this.handleError)
-    );
+
+
+        catchError(this.handleError)
+      );
   }
 
   userRegister(username: string, password: string, email: string,
@@ -72,9 +74,9 @@ export class AuthLoginService {
       .pipe(map(user => {
 
       }),
-        
-      // catchError(this.handleError)
-    );
+
+        catchError(this.handleError)
+      );
   }
 
   PlaceRegister(username: string, password: string, email: string,
@@ -91,9 +93,9 @@ export class AuthLoginService {
       .pipe(map(user => {
 
       }),
-        
-      // catchError(this.handleError)
-    );
+
+        catchError(this.handleError)
+      );
   }
   findPlaces(city:string,id:number){  
    return this.http.put('http://localhost:60354/api/Users2/Putcurrentlocation/'+id+'/'+city,{})

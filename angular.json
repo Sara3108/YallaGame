@@ -82,7 +82,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "assets/gmaps.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
