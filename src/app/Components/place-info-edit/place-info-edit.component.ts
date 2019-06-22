@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { PlaceInfoService } from 'src/app/services/place-info.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { AuthLoginService } from 'src/app/services/auth-login.service';
 
 @Component({
   selector: 'app-place-info-edit',
@@ -20,7 +23,7 @@ export class PlaceInfoEditComponent implements OnInit {
     phone : new FormControl(),
 
   })
-  constructor() { }
+  constructor(private service:PlaceInfoService, private authService: AuthLoginService) { }
 
   getEmail(){
     return this.form.get('email');
@@ -55,6 +58,25 @@ export class PlaceInfoEditComponent implements OnInit {
     return this.getPlaceName().hasError('required') ? 'UserName is Required' :'';
   }
   ngOnInit() {
+  }
+  editInfo(){
+    let edits={
+  "name": this.getPlaceName().value,
+  "phone": this.getPhone().value,
+  "country": this.getCountry().value,
+  "city": this.getCity().value,
+  "email": this.getEmail(),
+  // "days": "string",
+  // "latitude": 0,
+  // "longitude": 0,
+  "openHour": this.getWorkHours,
+  "closeHour": "string",
+    }
+ 
+    let helper = new JwtHelperService();
+    let token = this.authService.getPlaceAuthorizationToken();
+    let decodedToken = helper.decodeToken(token);
+    this.service.editPlaceInfo(decodedToken.nameid,edits)
   }
 
 }
