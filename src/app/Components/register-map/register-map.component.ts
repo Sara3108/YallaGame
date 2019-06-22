@@ -1,4 +1,4 @@
-// / <reference types="@types/googlemaps" /> 
+//<reference types="@types/googlemaps" /> 
 
 import { Component, OnInit, Input } from '@angular/core';
 import { MouseEvent } from '@agm/core';
@@ -24,7 +24,7 @@ export class RegisterMapComponent implements OnInit {
 
   ngOnInit() {
     // console.log(this.initMap());
-    // console.log(this.getGeoLocation("Cairo"));
+   // console.log(this.getGeoLocation("Cairo"));
     // console.log(`search value from onInint ${this.searchValue}`);
 
     // $(document).ready(function() {
