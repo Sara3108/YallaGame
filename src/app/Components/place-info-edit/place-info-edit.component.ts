@@ -26,6 +26,8 @@ export class PlaceInfoEditComponent implements OnInit {
   })
   constructor(private service:PlaceInfoService, private authService: AuthLoginService) { }
 
+  info:any[];
+
   getEmail(){
     return this.form.get('email');
   }
@@ -62,7 +64,14 @@ export class PlaceInfoEditComponent implements OnInit {
   getErrorMessagePlaceName() {
     return this.getPlaceName().hasError('required') ? 'UserName is Required' :'';
   }
+  helper = new JwtHelperService();
+  token = this.authService.getPlaceAuthorizationToken();
+  decodedToken = this.helper.decodeToken(this.token);
   ngOnInit() {
+    this.service.getPlaceInfo(this.decodedToken.nameid).subscribe(res=>{
+      this.info=res as any[];
+      console.log(this.info);
+    })
   }
   editInfo(){
     let edits={
@@ -70,18 +79,14 @@ export class PlaceInfoEditComponent implements OnInit {
   "phone": this.getPhone().value,
   "country": this.getCountry().value,
   "city": this.getCity().value,
-  "email": this.getEmail(),
-  // "days": "string",
-  // "latitude": 0,
-  // "longitude": 0,
+  "email": this.getEmail().value,
+  "days": this.getDays().value,
   "openHour": this.getOpenHour().value,
   "closeHour": this.getCloseHour().value,
     }
  
-    let helper = new JwtHelperService();
-    let token = this.authService.getPlaceAuthorizationToken();
-    let decodedToken = helper.decodeToken(token);
-    this.service.editPlaceInfo(decodedToken.nameid,edits).subscribe();
+    
+    this.service.editPlaceInfo(this.decodedToken.nameid,edits).subscribe();
   }
 
 }

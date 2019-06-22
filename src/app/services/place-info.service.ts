@@ -13,7 +13,11 @@ export class PlaceInfoService {
 
 
 editPlaceInfo(placeId:number, editObj){
- return this.http.put('http://localhost:60354//api/Places2/'+placeId,editObj);
+ return this.http.put('http://localhost:60354/api/Places2/'+placeId,editObj);
+}
+getPlaceInfo(placeId:number){
+  return this.http.get('http://localhost:60354/api/Places2/'+placeId);
+
 }
 
 }

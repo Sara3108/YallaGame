@@ -60,7 +60,7 @@ isLoading:boolean=false;
     let decodedToken = helper.decodeToken(token);
     console.log(decodedToken);
     this.service.findPlaces(this.getCity().value,decodedToken.nameid).subscribe(res=>{
-      this.router.navigate(['/home']);
+      this.router.navigate(['/places']);
     },err=>{
       this.isLoading=false;
     });
