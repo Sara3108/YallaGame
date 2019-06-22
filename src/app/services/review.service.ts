@@ -10,6 +10,6 @@ export class ReviewService {
 
   getAllReviews(id :number)
   {
-     return this.http.get('http://localhost:60354/api/Places2/GetPlaces/'+id);
+     return this.http.get('http://localhost:60354/api/ReviewPlaces2/GetReviewsByPlace/'+id);
   }
 }

@@ -12,7 +12,7 @@ export class ReviewsTabComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
+    // console.log()
 
   }
 }

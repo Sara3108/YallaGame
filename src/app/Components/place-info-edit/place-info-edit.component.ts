@@ -17,7 +17,7 @@ export class PlaceInfoEditComponent implements OnInit {
     email : new FormControl('', [Validators.required, Validators.email]),
     placename : new FormControl('',[Validators.required]),
     country: new FormControl(),
-    location: new FormControl(),
+    days: new FormControl(),
     openHour:new FormControl(),
     closeHour:new FormControl(),
     city:new FormControl(),
@@ -33,8 +33,8 @@ export class PlaceInfoEditComponent implements OnInit {
   getPlaceName(){
     return this.form.get('placename');
   }
-  getLocation(){
-    return this.form.get('location');
+  getDays(){
+    return this.form.get('days');
   }
   getPhone(){
     return this.form.get('phone');
@@ -51,6 +51,7 @@ export class PlaceInfoEditComponent implements OnInit {
   getCity(){
     return this.form.get('city');
   }
+  
 
 
   getErrorMessageEmail() {
