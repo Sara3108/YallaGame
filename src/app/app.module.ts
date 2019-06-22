@@ -1,4 +1,4 @@
-/// <reference types="@types/googlemaps" /> 
+// / <reference types="@types/googlemaps" /> 
 //modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -50,8 +50,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AuthLoginService } from './services/auth-login.service';
 import { RegisterMapComponent } from './Components/register-map/register-map.component';
 import { from } from 'rxjs';
-import {} from '@';
-import { WelcomePageComponent } from './Components/welcome-page/welcome-page.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +78,7 @@ import { WelcomePageComponent } from './Components/welcome-page/welcome-page.com
     UserInfoEditComponent,
     MapComponent,
     RegisterMapComponent,
-    WelcomePageComponent,
+    // WelcomePageComponent,
 
 
   ],

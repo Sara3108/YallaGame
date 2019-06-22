@@ -65,15 +65,27 @@ isLoading:boolean=false;
       });
   }
 
+  // return new Promise((resolve, reject) => {
+  //   setTimeout(() => {
+  //     if (error) {
+  //       reject('error'); // pass values
+  //     } else {
+  //       resolve('done'); // pass values
+  //     }
+  //   }, 1000);
+  // });
+
   PlaceSignIn() {
     this.isLoading=true;
     let helper = new JwtHelperService();
-    let token = this.authService.getPlaceAuthorizationToken();
-    let decodedToken = helper.decodeToken(token);
-    console.log(decodedToken);
+    
+    // console.log(decodedToken);
     this.authService.placelogin(this.getEmail().value, this.getPassword().value)
       .subscribe(result => { 
-        // if (result)
+        //if (result)
+        console.log("entered");
+        let token = this.authService.getPlaceAuthorizationToken();
+    let decodedToken = helper.decodeToken(token);
           this.router.navigate(['/place-details',decodedToken.nameid]);
       },(err:HttpErrorResponse)=>{
         this.isLoading=false;
@@ -83,5 +95,25 @@ isLoading:boolean=false;
         
       });
   }
+
+
+  // PlaceSignIn() {
+  //   this.isLoading=true;
+  //   let helper = new JwtHelperService();
+  //   let token = this.authService.getPlaceAuthorizationToken();
+  //   let decodedToken = helper.decodeToken(token);
+  //   console.log(decodedToken);
+  //   this.authService.placelogin(this.getEmail().value, this.getPassword().value)
+  //     .subscribe(result => { 
+  //       //if (result)
+  //         this.router.navigate(['/place-details',decodedToken.nameid]);
+  //     },(err:HttpErrorResponse)=>{
+  //       this.isLoading=false;
+        
+  //        console.log('errrrrrrrrrrrrrrrrrrrr')
+  //        this.PlaceErrorMsg=true;
+        
+  //     });
+  // }
 
 }
