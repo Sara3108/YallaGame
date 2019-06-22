@@ -18,7 +18,8 @@ export class PlaceInfoEditComponent implements OnInit {
     placename : new FormControl('',[Validators.required]),
     country: new FormControl(),
     location: new FormControl(),
-    workingHours:new FormControl(),
+    openHour:new FormControl(),
+    closeHour:new FormControl(),
     city:new FormControl(),
     phone : new FormControl(),
 
@@ -38,8 +39,11 @@ export class PlaceInfoEditComponent implements OnInit {
   getPhone(){
     return this.form.get('phone');
   }
-  getWorkHours(){
-    return this.form.get('workingHours');
+  getOpenHour(){
+    return this.form.get('openHour');
+  }
+  getCloseHour(){
+    return this.form.get('closeHour');
   }
   getCountry(){
     return this.form.get('country');
@@ -69,14 +73,14 @@ export class PlaceInfoEditComponent implements OnInit {
   // "days": "string",
   // "latitude": 0,
   // "longitude": 0,
-  "openHour": this.getWorkHours,
-  "closeHour": "string",
+  "openHour": this.getOpenHour().value,
+  "closeHour": this.getCloseHour().value,
     }
  
     let helper = new JwtHelperService();
     let token = this.authService.getPlaceAuthorizationToken();
     let decodedToken = helper.decodeToken(token);
-    this.service.editPlaceInfo(decodedToken.nameid,edits)
+    this.service.editPlaceInfo(decodedToken.nameid,edits).subscribe();
   }
 
 }

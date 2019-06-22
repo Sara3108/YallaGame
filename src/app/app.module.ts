@@ -1,4 +1,4 @@
-// / <reference types="@types/googlemaps" /> 
+// <reference types="@types/googlemaps" /> 
 //modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -50,6 +50,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AuthLoginService } from './services/auth-login.service';
 import { RegisterMapComponent } from './Components/register-map/register-map.component';
 import { from } from 'rxjs';
+import { WelcomePageComponent } from './Components/welcome-page/welcome-page.component';
+import { AboutUsComponent } from './Components/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +80,8 @@ import { from } from 'rxjs';
     UserInfoEditComponent,
     MapComponent,
     RegisterMapComponent,
-    // WelcomePageComponent,
+    WelcomePageComponent,
+    AboutUsComponent,
 
 
   ],
@@ -86,13 +89,17 @@ import { from } from 'rxjs';
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot([
-      { path: '', component: LoginComponent },
+      { path: '', component: WelcomePageComponent },
+      { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'location', component: LocationPageComponent },
-      { path: 'home', component: HomeFiltrationContainerComponent },
       { path: 'place-details/:placeId', component: PlaceDetailsComponent },
       { path: 'notification', component: InvitationComponent },
-      { path: 'user-profile', component: UserProfileComponent }
+      { path: 'user-profile', component: UserProfileComponent },
+      { path: 'places', component: HomeFiltrationContainerComponent },
+      { path: 'about-us', component: AboutUsComponent }
+
+
 
     ]),
     MatFormFieldModule,
