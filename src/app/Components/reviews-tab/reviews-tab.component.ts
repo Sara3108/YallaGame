@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ReviewService } from 'src/app/services/review.service';
 
 @Component({
   selector: 'app-reviews-tab',
@@ -6,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reviews-tab.component.css']
 })
 export class ReviewsTabComponent implements OnInit {
-  reviewNumber: number[] = [1, 2, 3, 4, 5, 6];
-
+  reviews: any[];
   constructor() { }
 
   ngOnInit() {
-  }
+    
 
+  }
 }
