@@ -15,7 +15,7 @@ export class PlaceDetailsComponent implements OnInit {
   placeId:number;
   place;
   loading:boolean;
-
+  ImageUrl: string = "https://picsum.photos/150/150";
 
   ngOnInit() {
     this.router.paramMap.subscribe(param=>{
@@ -27,9 +27,14 @@ export class PlaceDetailsComponent implements OnInit {
       console.log(this.place);
     })
 
+
   }
   getPlaceInfo(){
     return this.place;
+  }
+
+  uploadImage(event){
+    console.log(event);
   }
 
 }

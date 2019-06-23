@@ -12,125 +12,119 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-users=["Person","Place"];
-countries=['Egypt'];
-cities=['Ismailia','Suez','Port-Said','Cairo'];
-errMsg:boolean;
-isLoading:boolean=false;
-  constructor( private router: Router, 
+  users = ["Person", "Place"];
+  countries = ['Egypt'];
+  cities = ['Ismailia', 'Suez', 'Port-Said', 'Cairo'];
+  errMsg: boolean;
+  isLoading: boolean = false;
+  constructor(private router: Router,
     private authService: AuthLoginService) { }
 
   /// form declaration
   form = new FormGroup({
-    email : new FormControl('', [Validators.required, Validators.email]),
-    username : new FormControl('',[Validators.required]),
-    password : new FormControl('',[Validators.required]),
-    confirmPwd : new FormControl('',[Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    username: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
+    confirmPwd: new FormControl('', [Validators.required]),
     country: new FormControl(),
-    city:new FormControl(),
-    phone : new FormControl('',[Validators.minLength(11),Validators.maxLength(11)]),
-    user: new FormControl('',[Validators.required])
+    city: new FormControl(),
+    phone: new FormControl('', [Validators.minLength(11), Validators.maxLength(11)]),
+    user: new FormControl('', [Validators.required])
 
-  },{
-    validators: PasswordValidation.MatchPassword
-  })
-  
- ////// get form controls
-  getEmail(){
+  }, {
+      validators: PasswordValidation.MatchPassword
+    })
+
+  ////// get form controls
+  getEmail() {
     return this.form.get('email');
   }
 
-  getUserName(){
+  getUserName() {
     return this.form.get('username');
   }
-  getPassword(){
+  getPassword() {
     return this.form.get('password');
   }
-  getConfirmPwd(){
+  getConfirmPwd() {
     return this.form.get('confirmPwd');
   }
-  getUser(){
+  getUser() {
     return this.form.get('user');
   }
-  getPhone(){
+  getPhone() {
     return this.form.get('phone');
   }
-  getCountry(){
+  getCountry() {
     return this.form.get('country');
   }
-  getCity(){
+  getCity() {
     return this.form.get('city');
   }
 
   ////////////// Error massages
   getErrorMessageEmail() {
     return this.getEmail().hasError('required') ? 'Email is Required' :
-        this.getEmail().hasError('email') ? 'Not a valid email' :
-            '';
-  } 
+      this.getEmail().hasError('email') ? 'Not a valid email' :
+        '';
+  }
   getErrorMessageUserName() {
-    return this.getUserName().hasError('required') ? 'UserName is Required' :'';
+    return this.getUserName().hasError('required') ? 'UserName is Required' : '';
   }
-  getErrorMessagePwd(){
-    return this.getPassword().hasError('required') ? 'Password is Required' :'';
+  getErrorMessagePwd() {
+    return this.getPassword().hasError('required') ? 'Password is Required' : '';
   }
-  getErrorMessageCPwd(){
+  getErrorMessageCPwd() {
     return this.getConfirmPwd().hasError('required') ? 'Confirm Password is Required' :
-    this.getConfirmPwd().hasError('MatchPassword')?'must match':'';
+      this.getConfirmPwd().hasError('MatchPassword') ? 'must match' : '';
   }
-  getErrorMessageUser(){
-    return this.getUser().hasError('required') ? 'Must Select the Kind of User' :'';
+  getErrorMessageUser() {
+    return this.getUser().hasError('required') ? 'Must Select the Kind of User' : '';
   }
   getErrorMessagePhone() {
-    return this.getPhone().hasError('minLength')||
-    this.getPhone().hasError('maxLength') ? '' : 'Phone must be 11 digits';
+    return this.getPhone().hasError('minLength') ||
+      this.getPhone().hasError('maxLength') ? '' : 'Phone must be 11 digits';
   }
-  
-  
+
+
   /////// on submit form
-  signup(){
+  signup() {
 
-    if(this.getUser().value=='Person'){
-      this.isLoading=true;
+    if (this.getUser().value == 'Person') {
+      this.isLoading = true;
       this.authService.userRegister(this.getUserName().value, this.getPassword().value,
-      this.getEmail().value,this.getCountry().value,this.getCity().value, this.getPhone().value)
-       .subscribe(result => { 
-         // if (result)
-           this.router.navigate(['/']);
-         // else  
-       },(err)=>{
-        console.log('there is error happen');
-        this.isLoading=false;
-         if(err.status==401){
-          console.log('errrrrrrrrrrrrrrrrrrrr 401')
-          this.errMsg=true;
-         
-         }
-       });
-    }
-    else if(this.getUser().value=='Place'){
-      this.isLoading=true;
-      this.authService.PlaceRegister(this.getUserName().value, this.getPassword().value,
-      this.getEmail().value,this.getCountry().value,this.getCity().value, this.getPhone().value)
-       .subscribe(result => { 
-         // if (result)
-           this.router.navigate(['/']);
-        
-        },(err:HttpErrorResponse)=>{
-          this.isLoading=false;
-          if(err.status==401){
-           console.log('errrrrrrrrrrrrrrrrrrrr')
-           this.errMsg=true;
+        this.getEmail().value, this.getCountry().value, this.getCity().value, this.getPhone().value)
+        .subscribe(result => {
+          // if (result)
+          this.router.navigate(['/']);
+          // else  
+        }, (err) => {
+          console.log('there is error happen');
+          this.isLoading = false;
+          if (err.status == 401) {
+            console.log('errrrrrrrrrrrrrrrrrrrr 401')
+            this.errMsg = true;
           }
-       });
+        });
     }
+    // else if(this.getUser().value=='Place'){
+    //   this.isLoading=true;
+    //   this.authService.PlaceRegister(this.getUserName().value, this.getPassword().value,
+    //   this.getEmail().value,this.getCountry().value,this.getCity().value, this.getPhone().value)
+    //    .subscribe(result => { 
+    //      // if (result)
+    //        this.router.navigate(['/']);
 
-   
+    //     },(err:HttpErrorResponse)=>{
+    //       this.isLoading=false;
+    //       if(err.status==401){
+    //        console.log('errrrrrrrrrrrrrrrrrrrr')
+    //        this.errMsg=true;
+    //       }
+    //    });
+    // }
+
   }
- 
-
-  
-
 
   ngOnInit() {
   }

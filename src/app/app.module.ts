@@ -44,13 +44,13 @@ import { PlaceInfoEditComponent } from './Components/place-info-edit/place-info-
 import { UserInfoEditComponent } from './Components/user-info-edit/user-info-edit.component';
 import { MapComponent } from './Components/map/map.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 //services 
 import { AuthLoginService } from './services/auth-login.service';
 import { RegisterMapComponent } from './Components/register-map/register-map.component';
-import { from } from 'rxjs';
-import {} from '@';
+import { ContinuedRegisterComponent } from './Components/continued-register/continued-register.component';
 
 @NgModule({
   declarations: [
@@ -79,22 +79,13 @@ import {} from '@';
     UserInfoEditComponent,
     MapComponent,
     RegisterMapComponent,
+    ContinuedRegisterComponent,
 
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot([
-      { path: '', component: LoginComponent },
-      { path: 'register', component: RegisterComponent },
-      { path: 'location', component: LocationPageComponent },
-      { path: 'home', component: HomeFiltrationContainerComponent },
-      { path: 'place-details/:placeId', component: PlaceDetailsComponent },
-      { path: 'notification', component: InvitationComponent },
-      { path: 'user-profile', component: UserProfileComponent }
-
-    ]),
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
@@ -109,7 +100,7 @@ import {} from '@';
     MatCheckboxModule,
     MatProgressSpinnerModule,
     MatCardModule,
-    
+    MatStepperModule,
     StarRatingModule.forRoot(),
     AgmCoreModule.forRoot({
       // apiKey: 'AIzaSyDNJBXRkn6qZO1hknIesKifkpVBl5aBVJ0',

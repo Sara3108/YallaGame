@@ -4,11 +4,22 @@
 
 <div class="container">
 
-  <div class="row place-profile mx-auto">
+  <div class="row place-profile mx-auto" style="position: relative;">
     <div class="col-md-2.5 order-md-1" id="profile-img-div">
-      <img class="img-fluid mx-auto" id="profile-img" src="https://picsum.photos/150/150" />
+      <img class="img-fluid mx-auto" id="profile-img" [src]="ImageUrl" />
+      <!-- <i class="fa fa-pencil"></i> -->
+      <div>
+        <i class="profile_edit_camera fa fa-camera">
+          <div class="input-group mx-auto">
+            <div class="custom-file">
+              <input type="file" accept="image/*" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" onclick="uploadImage(event)">
+            </div>
+          </div>
+        </i>
+      </div>
     </div>
-    <div class="col-md-6 order-md-2" style="margin-top: 110px; padding: 0">
+    <div class="col-md-6 order-md-2" style="margin-top: 110px; padding: 0;position: absolute; left: 190px;">
+      <h3 class="text-dark" style="font-weight: 600">jdhksdhsdiukhsljdsiu</h3>
       <h3 class="text-dark" style="font-weight: 600" *ngIf="loading">{{place.name}}</h3>
       <app-star-rating class="d-flex" [starsCount]="place.rate" *ngIf="loading"></app-star-rating>
     </div>
@@ -44,3 +55,32 @@
 
 <app-invitation-modal></app-invitation-modal>
 <app-place-info-edit></app-place-info-edit>
+
+
+<!-- Modal
+<div class="modal fade" id="exampleModal" style="z-index: 1050 !important; color: #337ab7;" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="width: 450px;">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h3 class="text-center text-bold text-blue">Edit Profile Image</h3>
+        <hr>
+        <div class="row">
+          <img class="img-fluid mx-auto" style="border-radius: 50%" src="https://picsum.photos/70/70" alt="Profile image">
+        </div>
+        <form>
+          <div class="form-group mx-auto" style="opacity: 0.6; width: 90%">
+            <textarea class="form-control" style="background-color: aliceblue;" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Additional Comments..."></textarea>
+          </div>
+          <br>
+          <div class="d-flex mx-auto" style="width: 90%; ">
+            <button type="button" style="flex-grow: 1; margin-right: 15px;" class="btn btn-secondary" data-dismiss="modal">Not
+              Now</button>
+            <button type="button" style="flex-grow: 1" class="btn btn-primary">Submit Review</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->
