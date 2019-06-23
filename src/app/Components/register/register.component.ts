@@ -90,7 +90,6 @@ export class RegisterComponent implements OnInit {
   /////// on submit form
   signup() {
 
-    if (this.getUser().value == 'Person') {
       this.isLoading = true;
       this.authService.userRegister(this.getUserName().value, this.getPassword().value,
         this.getEmail().value, this.getCountry().value, this.getCity().value, this.getPhone().value)
@@ -124,7 +123,7 @@ export class RegisterComponent implements OnInit {
     //    });
     // }
 
-  }
+  
 
   ngOnInit() {
   }

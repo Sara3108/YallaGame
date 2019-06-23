@@ -53,6 +53,7 @@ import { RegisterMapComponent } from './Components/register-map/register-map.com
 import { ContinuedRegisterComponent } from './Components/continued-register/continued-register.component';
 import { WelcomePageComponent } from './Components/welcome-page/welcome-page.component';
 import { AboutUsComponent } from './Components/about-us/about-us.component';
+import { AddGameComponent } from './Components/add-game/add-game.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { AboutUsComponent } from './Components/about-us/about-us.component';
     ContinuedRegisterComponent,
     WelcomePageComponent,
     AboutUsComponent,
+    AddGameComponent,
 
 
   ],

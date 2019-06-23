@@ -53,7 +53,7 @@ isLoading:boolean=false;
     let helper = new JwtHelperService();
     let token = this.service.getUserAuthorizationToken();
     let decodedToken = helper.decodeToken(token);
-    console.log(decodedToken);
+    // console.log(decodedToken);
     this.service.findPlaces(this.getCity().value,decodedToken.nameid).subscribe(res=>{
       this.router.navigate(['/places']);
     },err=>{

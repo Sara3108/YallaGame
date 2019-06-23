@@ -19,12 +19,8 @@ export class InvitationModalComponent implements OnInit {
     let decodedToken = helper.decodeToken(token);
     this.service.getOnlineUsers(decodedToken.nameid).subscribe(res=>{
       this.onlineUsers= res as any[];
-      console.log("ONLINE USERS   "+this.onlineUsers);
+      console.log(this.onlineUsers);
     })
-  }
-  f(){
-    console.log("ONLINE USERS   "+this.onlineUsers);
-
   }
 
 

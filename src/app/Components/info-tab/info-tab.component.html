@@ -32,10 +32,10 @@
       <div class="col px-4 d-flex flex-column position-static order-md-2">
         <h2 class="d-inline-block mb-2" *ngIf="loading">{{place.name}}</h2>
         <h4 class="mb-0">
-            <mat-icon class="" *ngIf="loading&&place.description!=NULL"></mat-icon><span>{{place.description}}</span>
+            <mat-icon class="" ></mat-icon><span *ngIf="loading&&place.description!=NULL">{{place.description}}</span>
           </h4>
         <h4 class="mb-0">
-          <mat-icon class="" *ngIf="loading&&place.phone!=NULL">phone</mat-icon><span>{{place.phone}}</span>
+          <mat-icon class="" >phone</mat-icon><span *ngIf="loading&&place.phone!=NULL">{{place.phone}}</span>
         </h4>
         <h4 *ngIf="loading && place.days!=NULL">
             Open Days {{place.days}}
