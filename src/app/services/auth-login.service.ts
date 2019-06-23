@@ -133,12 +133,17 @@ export class AuthLoginService {
 
  
 
-  Userlogout() {
-    localStorage.removeItem('currentUser');
+  logOut() {
+    if(this.placeLoggedIn)
+    {
+      localStorage.removeItem('currentPlace');
+    }
+    if(this.userLoggedIn){
+      localStorage.removeItem('currentUser');
+    }
+
   }
-  Placelogout() {
-    localStorage.removeItem('currentPlace');
-  }
+
 
   private handleError(error: HttpErrorResponse) {
 

@@ -20,4 +20,9 @@ getPlaceInfo(placeId:number){
 
 }
 
+
+addReview(review){
+return this.http.post('http://localhost:60354/api/ReviewPlaces2',review)
+}
+
 }

@@ -15,7 +15,7 @@ export class UserProfileService {
   getUserReviews(userId){
     return this.http.get('http://localhost:60354/api/ReviewUsers2/GetReviewsByUser/'+userId);
   }
-  // addReview(userId){
-  //   return this.http.post.
-  // }
+  addReview(review){
+    return this.http.post('http://localhost:60354/api/ReviewUsers2',review);
+  }
 }

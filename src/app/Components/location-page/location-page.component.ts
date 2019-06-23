@@ -43,12 +43,7 @@ isLoading:boolean=false;
 
 
   logOut(){
-    if(this.service.userLoggedIn){
-      this.service.Userlogout();
-    }
-    else if(this.service.placeLoggedIn){
-      this.service.Placelogout();
-    }
+    this.service.logOut();
     this.router.navigate(['/']);
   }
 

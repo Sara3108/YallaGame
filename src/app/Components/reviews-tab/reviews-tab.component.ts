@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ReviewService } from 'src/app/services/review.service';
+import { PlaceInfoService } from '../../services/place-info.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { AuthLoginService } from '../../services/auth-login.service';
 
 @Component({
   selector: 'app-reviews-tab',
@@ -9,10 +12,30 @@ import { ReviewService } from 'src/app/services/review.service';
 })
 export class ReviewsTabComponent implements OnInit {
   reviews: any[];
-  constructor() { }
+  constructor(private service:PlaceInfoService, private route:ActivatedRoute, private authService:AuthLoginService) { }
+  
+
 
   ngOnInit() {
     // console.log()
 
+  }
+
+  addReview(){
+    let placeId;
+    this.route.paramMap.subscribe(param=>{
+      placeId=+ param.get('placeId');
+      })
+      let helper = new JwtHelperService();
+      let token = this.authService.getUserAuthorizationToken();
+      let decodedToken = helper.decodeToken(token);
+   let review={
+      "placeId": placeId,
+      "userId": decodedToken.nameid,
+      "content": "string",
+      "rate": 0
+    }
+  
+    this.service.addReview(review).subscribe();
   }
 }
