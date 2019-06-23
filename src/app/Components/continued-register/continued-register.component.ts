@@ -49,7 +49,8 @@ export class ContinuedRegisterComponent implements OnInit {
 
     this.form = this._formBuilder.group({
       user: ['', Validators.required],
-      email: ['', Validators.required, Validators.email],
+      // email: ['', Validators.required, Validators.email],
+      email:[''],
       username: ['', Validators.required],
       password: ['', Validators.required],
       confirmPwd: ['', Validators.required],
@@ -137,6 +138,7 @@ export class ContinuedRegisterComponent implements OnInit {
 
   /////// on submit form
   signup() {
+    this.isLoading=true;
     this.place = {
       userName: this.getUserName().value,
       email: this.getEmail().value,
@@ -157,7 +159,7 @@ export class ContinuedRegisterComponent implements OnInit {
       .subscribe(result => {
         // if (result)
         console.log(this.place);
-        this.router.navigate(['/']);
+        this.router.navigate(['/login']);
         // else  
       }, (err) => {
         console.log('there is error happen');

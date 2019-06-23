@@ -96,7 +96,7 @@ export class RegisterComponent implements OnInit {
         this.getEmail().value, this.getCountry().value, this.getCity().value, this.getPhone().value)
         .subscribe(result => {
           // if (result)
-          this.router.navigate(['/']);
+          this.router.navigate(['/login']);
           // else  
         }, (err) => {
           console.log('there is error happen');
