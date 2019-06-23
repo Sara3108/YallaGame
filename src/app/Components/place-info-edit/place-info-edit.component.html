@@ -43,15 +43,18 @@
                       </mat-form-field>
 
                       <mat-form-field>
-                          <input matInput placeholder="Working Hours" [formControl]="getWorkHours()">
+                          <input matInput placeholder="Open Hours" [formControl]="getOpenHour()">
                       </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="Close Hours" [formControl]="getCloseHour()">
+                    </mat-form-field>
                 
                       <mat-form-field>
                         <input matInput placeholder="Phone" [formControl]="getPhone()"  type="number">
                       </mat-form-field>
 
                       <mat-form-field>
-                          <input matInput placeholder="Location" [formControl]="getLocation()" type="text">
+                          <input matInput placeholder="Days" [formControl]="getDays()" type="text">
                       </mat-form-field>
                       
             
@@ -59,14 +62,10 @@
                     </div> 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Edit</button>
+        <button type="button" class="btn btn-primary" (click)="editInfo()">Edit</button>
       </div>
     </form>
     </div>
   </div>
-
-
-
-
-    
+  
 </div>

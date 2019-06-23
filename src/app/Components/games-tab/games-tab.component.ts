@@ -15,14 +15,14 @@ export class GamesTabComponent implements OnInit {
   constructor(private route:ActivatedRoute, private service:GamesService) { }
 
   ngOnInit() {
-    // this.route.paramMap.subscribe(param=>{
-    //   this.placeId=+ param.get('placeId');
-    //   })
+    this.route.paramMap.subscribe(param=>{
+      this.placeId=+ param.get('placeId');
+      })
 
-    //   this.service.getAllGames(this.placeId).subscribe(res=>{
-    //     this.games=res as any[];
-    //     console.log(this.games);
-    //   }) 
+      this.service.getAllGames(this.placeId).subscribe(res=>{
+        this.games=res as any[];
+        console.log(this.games);
+      }) 
   }
 
 }

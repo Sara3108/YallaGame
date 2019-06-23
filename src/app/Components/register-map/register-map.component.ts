@@ -1,4 +1,4 @@
-/// <reference types="@types/googlemaps" /> 
+//<reference types="@types/googlemaps" /> 
 
 import { Component, OnInit, Input } from '@angular/core';
 import { MouseEvent } from '@agm/core';

@@ -1,4 +1,4 @@
-/// <reference types="@types/googlemaps" /> 
+// <reference types="@types/googlemaps" /> 
 //modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -51,6 +51,8 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { AuthLoginService } from './services/auth-login.service';
 import { RegisterMapComponent } from './Components/register-map/register-map.component';
 import { ContinuedRegisterComponent } from './Components/continued-register/continued-register.component';
+import { WelcomePageComponent } from './Components/welcome-page/welcome-page.component';
+import { AboutUsComponent } from './Components/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +82,8 @@ import { ContinuedRegisterComponent } from './Components/continued-register/cont
     MapComponent,
     RegisterMapComponent,
     ContinuedRegisterComponent,
+    WelcomePageComponent,
+    AboutUsComponent,
 
 
   ],

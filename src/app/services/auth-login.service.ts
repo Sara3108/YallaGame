@@ -117,15 +117,22 @@ export class AuthLoginService {
     return false;
   }
 
-  getAuthorizationToken() {
+  getUserAuthorizationToken() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    return currentUser.token;
+  }
+  getPlaceAuthorizationToken() {
+    const currentUser = JSON.parse(localStorage.getItem('currentPlace'));
     return currentUser.token;
   }
 
 
 
-  logout() {
+  Userlogout() {
     localStorage.removeItem('currentUser');
+  }
+  Placelogout() {
+    localStorage.removeItem('currentPlace');
   }
 
   private handleError(error: HttpErrorResponse) {

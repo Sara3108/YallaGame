@@ -24,7 +24,7 @@
     </div>
     <div class="col-md-3 order-md-2 text-center">
         <button mat-raised-button id="loginBtn" color="warn" style="background-color: rgb(231, 166, 24);" data-toggle="modal"
-          data-target="#EditInfo">Edit Info</button>
+          data-target="#EditInfo" *ngIf="placeLoggin()">Edit Info</button>
       </div>
   </div>
   <div class="m-5">

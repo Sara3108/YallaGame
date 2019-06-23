@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { PlaceDetailsService } from './place-details.service';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,13 +8,16 @@ import { ActivatedRoute } from '@angular/router';
 export class PlaceInfoService {
   placeId: number;
   place;
-  constructor(private service : PlaceDetailsService, private router:ActivatedRoute) { }
-  getPlaceInfo(){
-    this.router.paramMap.subscribe(param=>{
-      this.placeId=+ param.get('placeId');
-      })
-      this.service.getPlace(this.placeId).subscribe(res=>{
-        this.place=res ;
-      })
-  }
+  constructor(private http: HttpClient, private router:ActivatedRoute) { }
+ 
+
+
+editPlaceInfo(placeId:number, editObj){
+ return this.http.put('http://localhost:60354/api/Places2/'+placeId,editObj);
+}
+getPlaceInfo(placeId:number){
+  return this.http.get('http://localhost:60354/api/Places2/'+placeId);
+
+}
+
 }

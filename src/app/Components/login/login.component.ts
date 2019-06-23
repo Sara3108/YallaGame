@@ -3,6 +3,7 @@ import {FormControl, Validators, FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthLoginService } from '../../services/auth-login.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-login',
@@ -64,13 +65,20 @@ isLoading:boolean=false;
       });
   }
 
+
+
   PlaceSignIn() {
     this.isLoading=true;
+    let helper = new JwtHelperService();
+    
+    // console.log(decodedToken);
     this.authService.placelogin(this.getEmail().value, this.getPassword().value)
       .subscribe(result => { 
-        // if (result)
-          // this.router.navigate(['/place-details']);
-   
+        //if (result)
+        console.log("entered");
+        let token = this.authService.getPlaceAuthorizationToken();
+    let decodedToken = helper.decodeToken(token);
+          this.router.navigate(['/place-details',decodedToken.nameid]);
       },(err:HttpErrorResponse)=>{
         this.isLoading=false;
         
@@ -79,5 +87,7 @@ isLoading:boolean=false;
         
       });
   }
+
+
 
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthLoginService } from '../../services/auth-login.service';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -39,12 +38,17 @@ isLoading:boolean=false;
     return this.getCity().hasError('required') ? 'City is Required' :'';
   }
 
-  constructor(private service: AuthLoginService, private router: Router, private http: HttpClient) { }
+  constructor(private service: AuthLoginService, private router: Router) { }
 
 
 
   logOut(){
-    this.service.logout();
+    if(this.service.userLoggedIn){
+      this.service.Userlogout();
+    }
+    else if(this.service.placeLoggedIn){
+      this.service.Placelogout();
+    }
     this.router.navigate(['/']);
   }
 
@@ -52,28 +56,17 @@ isLoading:boolean=false;
   this.isLoading=true;
 
     let helper = new JwtHelperService();
-    let token = this.service.getAuthorizationToken();
+    let token = this.service.getUserAuthorizationToken();
     let decodedToken = helper.decodeToken(token);
     console.log(decodedToken);
     this.service.findPlaces(this.getCity().value,decodedToken.nameid).subscribe(res=>{
-      this.router.navigate(['/home']);
+      this.router.navigate(['/places']);
     },err=>{
       this.isLoading=false;
     });
-    // console.log(this.getCity().value);
-    // console.log(decodedToken.nameid);
-    // // console.log(this.service.findPlaces(this.getCity().value,decodedToken.nameid));
-
-    
-
-
     
   }
 
-
-
-
-  
 
   ngOnInit() {
   }
