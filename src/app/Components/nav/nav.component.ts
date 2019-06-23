@@ -17,11 +17,13 @@ export class NavComponent implements OnInit {
   logOut(){
     if(this.service.userLoggedIn){
       this.service.Userlogout();
+      this.router.navigate(['/']);
     }
     else if(this.service.placeLoggedIn){
       this.service.Placelogout();
+      this.router.navigate(['/']);
     }
-    this.router.navigate(['/']);
+    
 
    
 

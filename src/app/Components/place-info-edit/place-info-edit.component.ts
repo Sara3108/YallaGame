@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PlaceInfoService } from 'src/app/services/place-info.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthLoginService } from 'src/app/services/auth-login.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-place-info-edit',
@@ -24,7 +25,7 @@ export class PlaceInfoEditComponent implements OnInit {
     phone : new FormControl(),
 
   })
-  constructor(private service:PlaceInfoService, private authService: AuthLoginService) { }
+  constructor(private service:PlaceInfoService, private authService: AuthLoginService, private route: ActivatedRoute) { }
 
   info:any[];
 
@@ -64,11 +65,12 @@ export class PlaceInfoEditComponent implements OnInit {
   getErrorMessagePlaceName() {
     return this.getPlaceName().hasError('required') ? 'UserName is Required' :'';
   }
-  helper = new JwtHelperService();
-  token = this.authService.getPlaceAuthorizationToken();
-  decodedToken = this.helper.decodeToken(this.token);
+placeId;
   ngOnInit() {
-    this.service.getPlaceInfo(this.decodedToken.nameid).subscribe(res=>{
+  this.route.paramMap.subscribe(param=>{
+    this.placeId=+ param.get('placeId'); 
+  })
+    this.service.getPlaceInfo(this.placeId).subscribe(res=>{
       this.info=res as any[];
       console.log(this.info);
     })
@@ -86,7 +88,7 @@ export class PlaceInfoEditComponent implements OnInit {
     }
  
     
-    this.service.editPlaceInfo(this.decodedToken.nameid,edits).subscribe();
+    this.service.editPlaceInfo(this.placeId,edits).subscribe();
   }
 
 }
