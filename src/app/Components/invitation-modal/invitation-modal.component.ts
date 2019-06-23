@@ -22,6 +22,10 @@ export class InvitationModalComponent implements OnInit {
       console.log("ONLINE USERS   "+this.onlineUsers);
     })
   }
+  f(){
+    console.log("ONLINE USERS   "+this.onlineUsers);
+
+  }
 
 
 

@@ -18,8 +18,8 @@
         </div>
         <div class="col-md-6">
           <a [routerLink]= "['/place-details',p.placeId]" ><h2 id="placeName" style="margin-top: 0;">{{p.name}}</h2></a>
-          <p *ngIf="p.openHour!=NULL">Open Hour : {{p.openHour}}</p>
-          <p *ngIf="p.closeHour!=NULL">Closed Hour : {{p.closeHour}}</p>
+          <p *ngIf="p.openHour!=NULL">Open at : {{p.openHour}}</p>
+          <p *ngIf="p.closeHour!=NULL">Close at : {{p.closeHour}}</p>
           
         </div>
         <div class="col-md-2 m-auto">
