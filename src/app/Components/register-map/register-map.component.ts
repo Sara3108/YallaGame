@@ -24,7 +24,7 @@ export class RegisterMapComponent implements OnInit {
 
   ngOnInit() {
     // console.log(this.initMap());
-   // console.log(this.getGeoLocation("Cairo"));
+    // console.log(this.getGeoLocation("Cairo"));
     // console.log(`search value from onInint ${this.searchValue}`);
 
     // $(document).ready(function() {

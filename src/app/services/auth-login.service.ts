@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { PlaceRegister } from '../models/place-register';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class AuthLoginService {
 
   redirectUrl: string;
   err: boolean;
+
 
   //   http .get('Some Url') .map(res => {
   //     // If request fails, throw an Error that will be caught 
@@ -35,16 +37,16 @@ export class AuthLoginService {
       //   },
       //     catchError(this.handleError))
       // )
-    .pipe(
-      map(user => {
+      .pipe(
+        map(user => {
           if (user && user.token) {
             localStorage.setItem('currentUser', JSON.stringify(user));
           }
-      }),
-      catchError(this.handleError)
+        }),
+        catchError(this.handleError)
 
-        
-    );
+
+      );
   }
 
   placelogin(username: string, password: string) {
@@ -79,17 +81,9 @@ export class AuthLoginService {
       );
   }
 
-  PlaceRegister(username: string, password: string, email: string,
-    country: string, city: string, phone: string) {
-    return this.http.post<any>('http://localhost:60354/api/PlaceAuth/Register',
-      {
-        username: username,
-        password: password,
-        email: email,
-        country: country,
-        city: city,
-        phone: phone
-      })
+  PlaceRegister(place: PlaceRegister) {
+
+    return this.http.post<any>('http://localhost:60354/api/PlaceAuth/Register', place)
       .pipe(map(user => {
 
       }),
@@ -97,14 +91,15 @@ export class AuthLoginService {
         catchError(this.handleError)
       );
   }
-  findPlaces(city:string,id:number){  
-   return this.http.put('http://localhost:60354/api/Users2/Putcurrentlocation/'+id+'/'+city,{})
-   .pipe(map(user => {
 
-  }),
-    
- catchError(this.handleError)
-);
+  findPlaces(city: string, id: number) {
+    return this.http.put('http://localhost:60354/api/Users2/Putcurrentlocation/' + id + '/' + city, {})
+      .pipe(map(user => {
+
+      }),
+
+        catchError(this.handleError)
+      );
   }
 
   //////////////////////////////////////////////
@@ -131,7 +126,7 @@ export class AuthLoginService {
     return currentUser.token;
   }
 
- 
+
 
   logOut() {
     if(this.placeLoggedIn)

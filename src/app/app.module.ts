@@ -44,12 +44,13 @@ import { PlaceInfoEditComponent } from './Components/place-info-edit/place-info-
 import { UserInfoEditComponent } from './Components/user-info-edit/user-info-edit.component';
 import { MapComponent } from './Components/map/map.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 //services 
 import { AuthLoginService } from './services/auth-login.service';
 import { RegisterMapComponent } from './Components/register-map/register-map.component';
-import { from } from 'rxjs';
+import { ContinuedRegisterComponent } from './Components/continued-register/continued-register.component';
 import { WelcomePageComponent } from './Components/welcome-page/welcome-page.component';
 import { AboutUsComponent } from './Components/about-us/about-us.component';
 
@@ -80,6 +81,7 @@ import { AboutUsComponent } from './Components/about-us/about-us.component';
     UserInfoEditComponent,
     MapComponent,
     RegisterMapComponent,
+    ContinuedRegisterComponent,
     WelcomePageComponent,
     AboutUsComponent,
 
@@ -88,20 +90,6 @@ import { AboutUsComponent } from './Components/about-us/about-us.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot([
-      { path: '', component: WelcomePageComponent },
-      { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent },
-      { path: 'location', component: LocationPageComponent },
-      { path: 'place-details/:placeId', component: PlaceDetailsComponent },
-      { path: 'notification', component: InvitationComponent },
-      { path: 'user-profile', component: UserProfileComponent },
-      { path: 'places', component: HomeFiltrationContainerComponent },
-      { path: 'about-us', component: AboutUsComponent }
-
-
-
-    ]),
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
@@ -116,7 +104,7 @@ import { AboutUsComponent } from './Components/about-us/about-us.component';
     MatCheckboxModule,
     MatProgressSpinnerModule,
     MatCardModule,
-    
+    MatStepperModule,
     StarRatingModule.forRoot(),
     AgmCoreModule.forRoot({
       // apiKey: 'AIzaSyDNJBXRkn6qZO1hknIesKifkpVBl5aBVJ0',
