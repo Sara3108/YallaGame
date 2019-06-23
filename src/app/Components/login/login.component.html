@@ -20,7 +20,7 @@
     
     <mat-tab-group mat-align-tabs="center" dynamicHeight>
       <mat-tab label="Login as Preson">
-        <form [formGroup]='form' (ngSubmit)="UsersignIn()">
+        <form id="f" [formGroup]='form' (ngSubmit)="UsersignIn()">
             <img id="profile" src="assets\images\logo.png"/>
           <h4 id="placeLogin"><span>Person Login</span></h4>
         <span class="alert alert-danger" *ngIf="UserErrorMsg">Invalid Username or password</span>
@@ -40,12 +40,13 @@
           <br>
           <button mat-raised-button id="loginBtn" color="warn">Login</button>
           <br>
-      
+  
         
       </form>
       </mat-tab>
 
-      <mat-tab label="Login as Place"><form [formGroup]='form' (ngSubmit)="PlaceSignIn()">
+      <mat-tab label="Login as Place">
+        <form id="f" [formGroup]='form' (ngSubmit)="PlaceSignIn()">
           <img id="profile" src="assets\images\logo.png"/>
         
         
