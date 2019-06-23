@@ -11,6 +11,6 @@ export class HomeService {
 
 
   getAllPlaces(id: number){
-   return this.http.get('http://localhost:60354/api/Places2/GetPlaces/'+id);
+   return this.http.get('http://localhost:60354/api/Places2/GetPlacesByUser/'+id);
   }
 }

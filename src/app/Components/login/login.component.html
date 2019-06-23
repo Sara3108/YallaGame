@@ -40,12 +40,13 @@
           <br>
           <button mat-raised-button id="loginBtn" color="warn">Login</button>
           <br>
-      
+  
         
       </form>
       </mat-tab>
 
-      <mat-tab label="Login as Place"><form [formGroup]='form' (ngSubmit)="PlaceSignIn()">
+      <mat-tab label="Login as Place">
+        <form id="f" [formGroup]='form' (ngSubmit)="PlaceSignIn()">
           <img id="profile" src="assets\images\logo.png"/>
         
         
