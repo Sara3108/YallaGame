@@ -12,4 +12,9 @@ export class ReviewService {
   {
      return this.http.get('http://localhost:60354/api/ReviewPlaces2/GetReviewsByPlace/'+id);
   }
+
+  getOnlineUsers(Userid){
+    return this.http.get('http://localhost:60354/api/Users2/getAllOnlineUsers/'+Userid);
+   }
+ 
 }
