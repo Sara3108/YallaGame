@@ -23,34 +23,34 @@
       <mat-icon>info</mat-icon> Info
     </div>
     <div class="col-md-3 order-md-2 text-center">
-        <button mat-raised-button id="loginBtn" color="warn" style="background-color: rgb(231, 166, 24);" data-toggle="modal"
-          data-target="#EditInfo" *ngIf="placeLoggin()">Edit Info</button>
-      </div>
+      <button mat-raised-button id="loginBtn" color="warn" style="background-color: rgb(231, 166, 24);" data-toggle="modal"
+        data-target="#EditInfo" *ngIf="placeLoggin()">Edit Info</button>
+    </div>
   </div>
   <div class="m-5">
     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative p-4">
       <div class="col px-4 d-flex flex-column position-static order-md-2">
-        <h2 class="d-inline-block mb-2" *ngIf="loading">{{place.name}}</h2>
+        <!-- <h2 class="d-inline-block mb-2" *ngIf="loading">{{place.name }}</h2> -->
         <h4 class="mb-0">
-            <mat-icon class="" *ngIf="loading&&place.description!=NULL"></mat-icon> <span>{{place.description}}</span>
-          </h4>
-        <h4 class="mb-0">
-          <mat-icon class="" *ngIf="loading&&place.phone!=NULL">phone</mat-icon> <span>{{place.phone}}</span>
+          <small *ngIf="loading">{{place.description}}</small>
         </h4>
-        <h4 *ngIf="loading && place.days!=NULL">
-            Open Days {{place.days}}
-          </h4>
-        <h4 *ngIf="loading && place.openHour!=NULL && place.closeHour!=NULL">
-          Open at {{place.openHour}} - {{place.closeHour}}
+        <h4 class="mb-0">
+          <small *ngIf="loading">phone: {{place.phone}}</small>
+        </h4>
+        <h4 *ngIf="loading">
+          <small>Work days: {{place.days}}</small>
+        </h4>
+        <h4 *ngIf="loading">
+          <small>Open at: {{place.openHour}} - {{place.closeHour}}</small>
         </h4>
         <!-- <p class="card-text mb-auto">
           <mat-icon class="">map</mat-icon> Link to google map location.
         </p> -->
-        <app-star-rating class="d-flex" [starsCount]="place.rate" *ngIf="loading"></app-star-rating>
+        <app-star-rating class="d-flex" [starsCount]="place.rate" *ngIf="loading" disabled></app-star-rating>
       </div>
       <div class="col-auto d-none d-lg-block order-md-1">
-        <img class="img-fluid mx-auto img-thumbnail" [src]="place.image" *ngIf="loading && place.image!=NULL"/>
-      
+        <img class="img-fluid mx-auto img-thumbnail" [src]="place.image" *ngIf="loading && place.image!=NULL" />
+
       </div>
     </div>
   </div>

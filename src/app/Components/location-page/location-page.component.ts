@@ -11,55 +11,56 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./location-page.component.css']
 })
 export class LocationPageComponent implements OnInit {
-  Country=['Egypt'];
-  cities=['Ismailia','Suez','Port-Said','Cairo'];
-isLoading:boolean=false;
+  Country = ['Egypt'];
+  cities = ['Ismailia', 'Suez', 'Port-Said', 'Cairo'];
+  isLoading: boolean = false;
 
-  
-  form= new FormGroup({
-    Country : new FormControl('', [Validators.required]),
-    City : new FormControl('',[Validators.required]),
+
+  form = new FormGroup({
+    Country: new FormControl('', [Validators.required]),
+    City: new FormControl('', [Validators.required]),
   })
 
 
-  getCountry(){
-   return this.form.get('Country');
+  getCountry() {
+    return this.form.get('Country');
   }
-  getCity(){
+  getCity() {
     return this.form.get('City');
   }
 
   getErrorMessageCountry() {
     return this.getCountry().hasError('required') ? 'Country is Required' :
-        // this.getEmail().hasError('email') ? 'Not a Valid Email' :
-            '';
+      // this.getEmail().hasError('email') ? 'Not a Valid Email' :
+      '';
   }
-  getErrorMessageCity(){
-    return this.getCity().hasError('required') ? 'City is Required' :'';
+  getErrorMessageCity() {
+    return this.getCity().hasError('required') ? 'City is Required' : '';
   }
 
   constructor(private service: AuthLoginService, private router: Router) { }
 
 
 
-  logOut(){
+  logOut() {
     this.service.logOut();
     this.router.navigate(['/']);
   }
 
-  FindPlaces(){
-  this.isLoading=true;
+  FindPlaces() {
+    this.isLoading = true;
 
     let helper = new JwtHelperService();
     let token = this.service.getUserAuthorizationToken();
     let decodedToken = helper.decodeToken(token);
     console.log(decodedToken);
-    this.service.findPlaces(this.getCity().value,decodedToken.nameid).subscribe(res=>{
+    this.service.findPlaces(this.getCity().value, decodedToken.nameid).subscribe(res => {
+      
       this.router.navigate(['/places']);
-    },err=>{
-      this.isLoading=false;
+    }, err => {
+      this.isLoading = false;
     });
-    
+
   }
 
 

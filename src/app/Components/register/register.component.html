@@ -13,17 +13,7 @@
           <!-- <mat-icon id="profile" >account_circle</mat-icon> -->
   
           <h4><span>Register</span></h4>
-  
-          <mat-form-field>
-            <mat-label>Are you (person or place)?</mat-label>
-            <mat-select [formControl]="getUser()">
-              <mat-option *ngFor="let u of users" [value]="u">
-                {{u}}
-              </mat-option>
-            </mat-select>
-            <mat-error *ngIf="getUser().invalid">{{getErrorMessageUser()}}</mat-error>
-          </mat-form-field>
-  
+          
           <mat-form-field>
             <input matInput placeholder="Username" [formControl]="getUserName()" required>
             <mat-error *ngIf="getUserName().invalid">{{getErrorMessageUserName()}}</mat-error>

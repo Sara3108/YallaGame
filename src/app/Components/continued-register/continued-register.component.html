@@ -7,133 +7,145 @@
   </div>
   <div class="row w-100 mx-0">
     <div class="example-container col-lg-5 col-md-6 col-sm-8 mx-auto rounded">
-        <form (ngSubmit)="signup()">
-      <mat-vertical-stepper linear #stepper>
-        
-        <mat-step [stepControl]="firstFormGroup">
-          <form [formGroup]="form">
-            <ng-template matStepLabel>Basic Information</ng-template>
+      <form (ngSubmit)="signup()">
+        <mat-vertical-stepper linear #stepper>
 
-            <mat-form-field>
-              <input matInput placeholder="Username" formControlName="username" required>
-              <mat-error *ngIf="getUserName().invalid">{{getErrorMessageUserName()}}</mat-error>
-            </mat-form-field>
+          <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="form">
+              <ng-template matStepLabel>Basic Information</ng-template>
 
-            <mat-form-field>
-              <input matInput placeholder="Email" formControlName="email" required>
-              <!-- <mat-error *ngIf="getEmail().invalid">{{getErrorMessageEmail()}}</mat-error> -->
-            </mat-form-field>
-
-            <mat-form-field>
-              <input matInput placeholder="Password" type="password" formControlName="password" required>
-              <mat-error *ngIf="getPassword().invalid">{{getErrorMessagePwd()}}</mat-error>
-            </mat-form-field>
-
-            <mat-form-field>
-              <input matInput placeholder="Confirm Password" type="password" formControlName="confirmPwd" required>
-              <mat-error *ngIf="getConfirmPwd().invalid">{{getErrorMessageCPwd()}}</mat-error>
-            </mat-form-field>
-
-            <mat-form-field>
-              <mat-label>Country</mat-label>
-              <mat-select formControlName="country">
-                <mat-option *ngFor="let country of countries" [value]="country" required>
-                  {{country}}
-                </mat-option>
-              </mat-select>
-              <mat-error *ngIf="getCountry().invalid">{{getErrorMessageCountry()}}</mat-error>
-            </mat-form-field>
-
-            <mat-form-field>
-              <mat-label>City</mat-label>
-              <mat-select formControlName="city" required>
-                <mat-option *ngFor="let city of cities" [value]="city">
-                  {{city}}
-                </mat-option>
-              </mat-select>
-              <mat-error *ngIf="getCity().invalid">{{getErrorMessageCity()}}</mat-error>
-            </mat-form-field>
-
-            <mat-form-field>
-              <input matInput placeholder="Phone" formControlName="phone" required>
-              <mat-error *ngIf="getPhone().invalid">{{getErrorMessagePhone()}}</mat-error>
-            </mat-form-field>
-
-            <div>
-              <div class="loading" *ngIf="isLoading">Loading&#8230;</div>
-              <button mat-button matStepperNext>Next</button>
-            </div>
-          </form>
-        </mat-step>
-        <mat-step [stepControl]="secondFormGroup">
-          <form [formGroup]="secondFormGroup">
-            <ng-template matStepLabel>Place Description</ng-template>
-            <span class="d-flex" style="font-weight: bold">Upload Profile Image:</span>
-            <div class="custom-file">
-              <input type="file" class="custom-file-input" accept="image/*" placeholder="ProfileImage" formControlName="profileImage"
-                required>
-              <small class="text-danger" *ngIf="getProfileImage().invalid">{{getErrorMessageProfileImage()}}</small>
-              <label class="custom-file-label" for="customFile">Choose file</label>
-            </div>
-            <br><br>
-            <span class="d-flex" style="font-weight: bold">Place Description:</span>
-            <mat-form-field>
-              <input matInput placeholder="Description" formControlName="description" required minlength="20">
-              <mat-error *ngIf="getDescription().invalid">{{getErrorMessageDescription()}}</mat-error>
-            </mat-form-field>
-
-            <span class="d-flex" style="font-weight: bold">Working Time:</span>
-            <div style="display: flex">
-              <mat-form-field style="flex-grow: 1">
-                <mat-label>From</mat-label>
-                <mat-select [(value)]="fromSelectedDay" formControlName="fromSelectedDay" required>
-                  <mat-option *ngFor="let day of days" [value]="day">{{day}}</mat-option>
-                </mat-select>
+              <mat-form-field>
+                <input matInput placeholder="Username" formControlName="username" required>
+                <mat-error *ngIf="getUserName().invalid">{{getErrorMessageUserName()}}</mat-error>
               </mat-form-field>
-              <mat-form-field style="flex-grow: 1">
-                <mat-label>To</mat-label>
-                <mat-select [(value)]="toSelectedDay" formControlName="toSelectedDay" required>
-                  <mat-option *ngFor="let day of days" [value]="day">{{day}}</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
 
-            <span class="d-flex" style="font-weight: bold">Working Hours:</span>
-            <div style="display: flex">
-              <mat-form-field style="flex-grow: 1">
-                <mat-label>Open Hour:</mat-label>
-                <mat-select [(value)]="openSelectedHour" formControlName="openSelectedHour" required>
-                  <mat-option *ngFor="let hour of hours" [value]="hour">{{hour}}</mat-option>
-                </mat-select>
+              <mat-form-field>
+                <input matInput placeholder="Email" formControlName="email" required>
+                <!-- <mat-error *ngIf="getEmail().invalid">{{getErrorMessageEmail()}}</mat-error> -->
               </mat-form-field>
-              <mat-form-field style="flex-grow: 1">
-                <mat-label>Close Hour: </mat-label>
-                <mat-select [(value)]="closeSelectedHour" formControlName="closeSelectedHour" required>
-                  <mat-option *ngFor="let hour of hours" [value]="hour">{{hour}}</mat-option>
-                </mat-select>
+
+              <mat-form-field>
+                <input matInput placeholder="Password" type="password" formControlName="password" required>
+                <mat-error *ngIf="getPassword().invalid">{{getErrorMessagePwd()}}</mat-error>
               </mat-form-field>
-            </div>
+
+              <mat-form-field>
+                <input matInput placeholder="Confirm Password" type="password" formControlName="confirmPwd" required>
+                <mat-error *ngIf="getConfirmPwd().invalid">{{getErrorMessageCPwd()}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Country</mat-label>
+                <mat-select formControlName="country">
+                  <mat-option *ngFor="let country of countries" [value]="country" required>
+                    {{country}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="getCountry().invalid">{{getErrorMessageCountry()}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>City</mat-label>
+                <mat-select formControlName="city" required>
+                  <mat-option *ngFor="let city of cities" [value]="city">
+                    {{city}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="getCity().invalid">{{getErrorMessageCity()}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput placeholder="Phone" formControlName="phone" required>
+                <mat-error *ngIf="getPhone().invalid">{{getErrorMessagePhone()}}</mat-error>
+              </mat-form-field>
+
+              <div>
+                <div class="loading" *ngIf="isLoading">Loading&#8230;</div>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="secondFormGroup">
+            <form [formGroup]="secondFormGroup">
+              <ng-template matStepLabel>Place Description</ng-template>
+              <span class="d-flex" style="font-weight: bold">Upload Profile Image:</span>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" accept="image/*" placeholder="ProfileImage"
+                  formControlName="profileImage" required>
+                <small class="text-danger" *ngIf="getProfileImage().invalid">{{getErrorMessageProfileImage()}}</small>
+                <label class="custom-file-label" for="customFile">Choose file</label>
+              </div>
+              <br><br>
+              <span class="d-flex" style="font-weight: bold">Place Description:</span>
+              <mat-form-field>
+                <input matInput placeholder="Description" formControlName="description" required minlength="20">
+                <mat-error *ngIf="getDescription().invalid">{{getErrorMessageDescription()}}</mat-error>
+              </mat-form-field>
+
+              <span class="d-flex" style="font-weight: bold">Working Time:</span>
+              <div style="display: flex">
+                <mat-form-field style="flex-grow: 1">
+                  <mat-label>From</mat-label>
+                  <mat-select [(value)]="fromSelectedDay" formControlName="fromSelectedDay" required>
+                    <mat-option *ngFor="let day of days" [value]="day">{{day}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field style="flex-grow: 1">
+                  <mat-label>To</mat-label>
+                  <mat-select [(value)]="toSelectedDay" formControlName="toSelectedDay" required>
+                    <mat-option *ngFor="let day of days" [value]="day">{{day}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <span class="d-flex" style="font-weight: bold">Working Hours:</span>
+              <div style="display: flex">
+                <mat-form-field style="flex-grow: 1">
+                  <mat-label>Open Hour:</mat-label>
+                  <mat-select [(value)]="openSelectedHour" formControlName="openSelectedHour" required>
+                    <mat-option *ngFor="let hour of hours" [value]="hour">{{hour}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field style="flex-grow: 1">
+                  <mat-label>Close Hour: </mat-label>
+                  <mat-select [(value)]="closeSelectedHour" formControlName="closeSelectedHour" required>
+                    <mat-option *ngFor="let hour of hours" [value]="hour">{{hour}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step>
+            <form [formGroup]="thirdFormGroup">
+              <ng-template matStepLabel>Location</ng-template>
+              <!-- <app-register-map [searchValue]="city"></app-register-map> -->
+              <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false"
+                (mapClick)="mapClicked($event)">
+
+                <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label, i)"
+                  [latitude]="m.lat" [longitude]="m.lng" [label]="m.label" [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)">
+
+                </agm-marker>
+
+              </agm-map>
+            </form>
+            <br>
+            <button type="submit" mat-raised-button color="warn" id="registerBtn">
+              Register
+            </button>
             <div>
               <button mat-button matStepperPrevious>Back</button>
-              <button mat-button matStepperNext>Next</button>
             </div>
-          </form>
-        </mat-step>
-        <mat-step>
-          <ng-template matStepLabel>Location</ng-template>
-          <app-register-map [searchValue]="city"></app-register-map>
-          <br>
-          <button type="submit" mat-raised-button color="warn" id="registerBtn">
-            Register
-          </button>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-          </div>
-        </mat-step>
-      </mat-vertical-stepper>
-    </form>
-    <div class="loading" *ngIf="isLoading">Loading&#8230;</div>
-      
+          </mat-step>
+
+        </mat-vertical-stepper>
+      </form>
+      <div class="loading" *ngIf="isLoading">Loading&#8230;</div>
+
     </div>
   </div>
 </div>

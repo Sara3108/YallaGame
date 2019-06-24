@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 
 
 export class RegisterMapComponent implements OnInit {
-
+ 
 
   markers: marker[] = []
   @Input() searchValue: string = "";

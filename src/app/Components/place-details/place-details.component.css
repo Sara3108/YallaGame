@@ -8,16 +8,17 @@
 }
 
 #profile-img-div{
-    margin-top: 80px;
+    margin-top: 50px;
     margin-left: 20px;
     margin-right: 20px;
     text-align: center;
     position: absolute;
 }
 #profile-img{
-    border: 6px solid white;
+    border: 6px solid lightgrey;
     border-radius: 50%;
     width: 150px;
+    height: 150px;
 }
 
 

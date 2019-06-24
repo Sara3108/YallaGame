@@ -104,3 +104,24 @@ h4 {
   a:hover{
       text-decoration: underline;
   }
+
+
+  agm-map {
+    height: 300px;
+  }
+  
+  
+  * {
+    font-family: Lato;
+  }
+  
+  a {
+    color: darkblue;
+  }
+
+.mat-vertical-content-container{
+    margin-left: 0 !important;
+}
+div.mat-vertical-content{
+    padding: 0 !important;
+}

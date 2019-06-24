@@ -90,7 +90,6 @@ export class RegisterComponent implements OnInit {
   /////// on submit form
   signup() {
 
-    if (this.getUser().value == 'Person') {
       this.isLoading = true;
       this.authService.userRegister(this.getUserName().value, this.getPassword().value,
         this.getEmail().value, this.getCountry().value, this.getCity().value, this.getPhone().value)
@@ -106,24 +105,6 @@ export class RegisterComponent implements OnInit {
             this.errMsg = true;
           }
         });
-    }
-    // else if(this.getUser().value=='Place'){
-    //   this.isLoading=true;
-    //   this.authService.PlaceRegister(this.getUserName().value, this.getPassword().value,
-    //   this.getEmail().value,this.getCountry().value,this.getCity().value, this.getPhone().value)
-    //    .subscribe(result => { 
-    //      // if (result)
-    //        this.router.navigate(['/']);
-
-    //     },(err:HttpErrorResponse)=>{
-    //       this.isLoading=false;
-    //       if(err.status==401){
-    //        console.log('errrrrrrrrrrrrrrrrrrrr')
-    //        this.errMsg=true;
-    //       }
-    //    });
-    // }
-
   }
 
   ngOnInit() {

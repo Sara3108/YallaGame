@@ -4,7 +4,8 @@ import { PasswordValidation } from '../../validations/validators';
 import { Router } from '@angular/router';
 import { AuthLoginService } from '../../services/auth-login.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { PlaceRegister } from 'src/app/models/place-register';
+import { Place } from 'src/app/models/place';
+import { MouseEvent } from '@agm/core';
 
 @Component({
   selector: 'app-continued-register',
@@ -18,8 +19,11 @@ export class ContinuedRegisterComponent implements OnInit {
   errMsg: boolean;
   isLoading: boolean = false;
 
-  place: PlaceRegister;
+  place: Place;
 
+  markers: marker[] = []
+
+  thirdFormGroup: FormGroup;
   form: FormGroup;
   secondFormGroup: FormGroup;
 
@@ -31,6 +35,17 @@ export class ContinuedRegisterComponent implements OnInit {
 
   openSelectedHour: number = this.hours[0];
   closeSelectedHour: number = this.hours[0];
+  zoom: number = 8;
+
+  // initial center position for the map
+  lat: number;
+  lng: number;
+
+  // clickedMarker(label: string, index: number) {
+  //   console.log(`clicked the marker: ${label || index}`)
+  // }
+
+  
 
   constructor(private router: Router,
     private authService: AuthLoginService,
@@ -38,6 +53,10 @@ export class ContinuedRegisterComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.thirdFormGroup = this._formBuilder.group({
+      latitude: ['', Validators.required],
+      longitude: ['', Validators.required],
+    });
     this.secondFormGroup = this._formBuilder.group({
       profileImage: ['', Validators.required],
       description: ['', [Validators.required, Validators.minLength(20)]],
@@ -60,7 +79,34 @@ export class ContinuedRegisterComponent implements OnInit {
     },
       {
         validators: PasswordValidation.MatchPassword
-      });;
+      });
+
+      
+  }
+  mapClicked($event: MouseEvent) {
+    this.markers = [];
+    this.markers.push({
+      lat: $event.coords.lat,
+      lng: $event.coords.lng,
+      draggable: true
+    });
+    // this.getLatitude($event.coords.lat);
+    // this.getLongitude($event.coords.lng);
+    console.log(this.markers[0]);
+  }
+
+  markerDragEnd(m: marker, $event: MouseEvent) {
+    m.lat = $event.coords.lat;
+    m.lng = $event.coords.lng;
+    this.markers = [];
+    this.markers.push({
+      lat: $event.coords.lat,
+      lng: $event.coords.lng,
+      draggable: true
+    });
+    console.log('dragEnd', m, $event);
+    // this.getLatitude($event.coords.lat);
+    // this.getLongitude($event.coords.lng);
   }
 
   ////// get form controls
@@ -95,7 +141,18 @@ export class ContinuedRegisterComponent implements OnInit {
   getDescription() {
     return this.secondFormGroup.get('description');
   }
-
+  // getLatitude(lat: number) {
+  //   // return this.thirdFormGroup.get('latitude');
+  //   // if (this.lat != null){
+  //     return lat;
+  //   // }
+  // }
+  // getLongitude(lng: number) {
+  //   // return this.thirdFormGroup.get('longitude');
+  //   // if (this.lng != null){
+  //     return lng;
+  //   // }
+  // }
   ////////////// Error massages
   getErrorMessageEmail() {
     return this.getEmail().hasError('required') ? 'Email is Required' :
@@ -126,7 +183,7 @@ export class ContinuedRegisterComponent implements OnInit {
       this.getPhone().hasError('minLength') ||
         this.getPhone().hasError('maxLength') ? '' : 'Phone must be 11 digits';
   }
-
+ 
   getErrorMessageProfileImage() {
     return this.getProfileImage().hasError('required') ? 'Profile image is required' : '';
   }
@@ -138,6 +195,8 @@ export class ContinuedRegisterComponent implements OnInit {
 
   /////// on submit form
   signup() {
+    console.log(this.markers[0].lat, this.markers[0].lng);
+
     this.isLoading=true;
     this.place = {
       userName: this.getUserName().value,
@@ -151,10 +210,11 @@ export class ContinuedRegisterComponent implements OnInit {
       days: (this.fromSelectedDay + ' - ' + this.toSelectedDay),
       openHour: `${this.openSelectedHour}`,
       closeHour: `${this.closeSelectedHour}`,
-      latitude: 0,
-      longitude: 0
+      latitude: `${this.markers[0].lat}`,
+      longitude: `${this.markers[0].lng}`
     }
     this.isLoading = true;
+    // console.log(this.getLatitude(), this.getLongitude());
     this.authService.PlaceRegister(this.place)
       .subscribe(result => {
         // if (result)
@@ -164,10 +224,16 @@ export class ContinuedRegisterComponent implements OnInit {
       }, (err) => {
         console.log('there is error happen');
         this.isLoading = false;
-        if (err.status == 401) {
+        if (err.status == 401) { 
           console.log('errrrrrrrrrrrrrrrrrrrr 401')
           this.errMsg = true;
         }
       });
   }
+}
+interface marker {
+  lat: number;
+  lng: number;
+  label?: string;
+  draggable: boolean;
 }

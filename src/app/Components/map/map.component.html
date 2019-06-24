@@ -4,8 +4,8 @@
 </agm-map> -->
 
 <agm-map [latitude]="person_latitude" [longitude]="person_longitude" style="height: 300px">
-  <div *ngFor="let marker of Marker">
-    <agm-marker [latitude]="marker.latitude" [longitude]="marker.longitude"></agm-marker>
+  <!-- <div *ngFor="let marker of Marker"> -->
+    <agm-marker *ngIf="loaded"  [latitude]="marker.latitude" [longitude]="marker.longitude"></agm-marker>
     <!-- <agm-marker [latitude]="person_latitude" [longitude]="person_longitude"></agm-marker> -->
-  </div>
+  <!-- </div> -->
 </agm-map>

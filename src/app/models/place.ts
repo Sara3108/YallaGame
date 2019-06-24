@@ -1,4 +1,4 @@
-export interface PlaceRegister{
+export interface Place{
     userName: string, 
     email: string, 
     password: string, 
@@ -10,6 +10,6 @@ export interface PlaceRegister{
     days: string, 
     openHour: string,
     closeHour: string,
-    latitude: number, 
-    longitude: number
+    latitude: string, 
+    longitude: string
 }

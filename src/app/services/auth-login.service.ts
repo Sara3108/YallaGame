@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { PlaceRegister } from '../models/place-register';
+import { Place } from '../models/place';
 
 @Injectable({
   providedIn: 'root'
@@ -81,7 +81,7 @@ export class AuthLoginService {
       );
   }
 
-  PlaceRegister(place: PlaceRegister) {
+  PlaceRegister(place: Place) {
 
     return this.http.post<any>('http://localhost:60354/api/PlaceAuth/Register', place)
       .pipe(map(user => {
@@ -129,11 +129,10 @@ export class AuthLoginService {
 
 
   logOut() {
-    if(this.placeLoggedIn)
-    {
+    if (this.placeLoggedIn) {
       localStorage.removeItem('currentPlace');
     }
-    if(this.userLoggedIn){
+    if (this.userLoggedIn) {
       localStorage.removeItem('currentUser');
     }
 

@@ -1,35 +1,33 @@
 <div class="" style="padding: 10px ; height: height;">
   <div id="sortby" class="breadcrumb">
-    <p class="" style="margin: 5px; font-weight: 500">Sort By: 
-        <a style="font-weight: 300">  Recommended |</a> 
-        <a style="font-weight: 300">  Ratings  |</a> 
-        <a style="font-weight: 300">  Newest </a> 
-        
-        
+    <p class="" style="margin: 5px; font-weight: 500">Sort By:
+      <a style="font-weight: 300"> Recommended |</a>
+      <a style="font-weight: 300"> Ratings |</a>
+      <a style="font-weight: 300"> Newest </a>
+
+
     </p>
 
 
   </div>
 
-  <mat-card *ngFor="let p of places">
-    <div class="row m-auto">
-        <div class="col-md-2">
-            <img id="i" class="rounded float-left" src="assets\images\place.jpg"/>
+  <div class="d-flex">
+    <mat-card class="w-50" style="margin-left: 10px"  *ngFor="let p of places" >
+      <div *ngIf="p != NUKK" class="row m-auto">
+        <div class="col-md-4 p-0">
+          <img id="i" class="rounded" [src]="p.image" />
         </div>
-        <div class="col-md-6">
-          <a [routerLink]= "['/place-details',p.placeId]" ><h2 id="placeName" style="margin-top: 0;">{{p.name}}</h2></a>
-          <p *ngIf="p.openHour!=NULL">Open Hour : {{p.openHour}}</p>
-          <p *ngIf="p.closeHour!=NULL">Closed Hour : {{p.closeHour}}</p>
-          
+        <div class="col-md-8 p-0">
+          <a [routerLink]="['/place-details',p.placeId]">
+            <h3 id="placeName" style="margin-top: 0;">{{p.name}}</h3>
+          </a>
+          <small>Work days: {{p.days}}</small><br>
+          <small>Open at : {{p.openHour}} - {{p.closeHour}}</small>
+          <app-star-rating class="d-flex m-auto" [starsCount]="p.rate"></app-star-rating>
         </div>
-        <div class="col-md-2 m-auto">
-          <app-star-rating class="d-flex m-auto" style="widows: 50%;" [starsCount]="p.rate">
+      </div>
 
-          </app-star-rating>
 
-        </div>
-    </div>
-    
-
-  </mat-card>
+    </mat-card>
+  </div>
 </div>
