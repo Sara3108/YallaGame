@@ -11,12 +11,12 @@
   </div>
 
   <ul class="list-group">
-      <li class="list-group-item"> Name </li>
-      <li class="list-group-item"> Phone</li>
-      <li class="list-group-item"> Country</li>
-      <li class="list-group-item"> City</li>      
-      <li class="list-group-item"> Rateing</li>
-      <li class="list-group-item"> Interests</li>   
+      <li class="list-group-item" *ngIf="loaded">Name:  {{info.name}}</li>
+      <li class="list-group-item" *ngIf="loaded">Phone:  {{info.phone}}</li>
+      <li class="list-group-item" *ngIf="loaded">Country {{info.country}}</li>
+      <li class="list-group-item" *ngIf="loaded">City:  {{info.city}}</li>      
+      <!-- <li class="list-group-item"> Rateing</li>
+      <li class="list-group-item"> Interests</li>    -->
   </ul>
 
 </div>

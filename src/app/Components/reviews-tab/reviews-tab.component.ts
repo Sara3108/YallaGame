@@ -26,17 +26,22 @@ export class ReviewsTabComponent implements OnInit {
     this.route.paramMap.subscribe(param=>{
       placeId=+ param.get('placeId');
       })
-      let helper = new JwtHelperService();
+      let decodedToken;
+      if(this.authService.userLoggedIn){
+        let helper = new JwtHelperService();
       let token = this.authService.getUserAuthorizationToken();
-      let decodedToken = helper.decodeToken(token);
-   let review={
-      "placeId": placeId,
-      "userId": decodedToken.nameid,
-      "content": "string",
-      "rate": 0
-    }
+       decodedToken = helper.decodeToken(token);
+       let review={
+        "placeId": placeId,
+        "userId": decodedToken.nameid,
+        "content": "string",
+        "rate": 0
+      }
+    
+      this.service.addReview(review).subscribe();
+      }
+      
   
-    this.service.addReview(review).subscribe();
   }
   userLogin(){
     return this.authService.userLoggedIn();

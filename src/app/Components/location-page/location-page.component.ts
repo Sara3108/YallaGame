@@ -49,8 +49,8 @@ isLoading:boolean=false;
 
   FindPlaces(){
   this.isLoading=true;
-
-    let helper = new JwtHelperService();
+if(this.service.userLoggedIn){
+  let helper = new JwtHelperService();
     let token = this.service.getUserAuthorizationToken();
     let decodedToken = helper.decodeToken(token);
     // console.log(decodedToken);
@@ -59,6 +59,8 @@ isLoading:boolean=false;
     },err=>{
       this.isLoading=false;
     });
+}
+  
     
   }
 

@@ -13,20 +13,17 @@ import { AuthLoginService } from '../../services/auth-login.service';
 export class UserProfileComponent implements OnInit {
   reviewNumber: number [] = [1, 2, 3, 4, 5];
 
-  constructor(private service:UserProfileService, private authService:AuthLoginService) { }
+  constructor(private service:UserProfileService,private auth:AuthLoginService) { }
+  info;
 
   ngOnInit() {
     let helper = new JwtHelperService();
-    let token = this.authService.getUserAuthorizationToken();
+    let token = this.auth.getUserAuthorizationToken();
     let decodedToken = helper.decodeToken(token);
-    let review={
-      "userId": decodedToken.nameid,
-      "reviewerId": 0,
-      "content": "string",
-      "rate": 0,
-
-    }
-    this.service.getUserInfo(review)
+    this.service.getUserInfo(decodedToken.nameid).subscribe(res=>{
+      this.info=res;
+      console.log(this.info);
+    })
   }
 
 }

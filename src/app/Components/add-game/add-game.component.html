@@ -1,7 +1,7 @@
-<div class="modal fade" id="invitationModal" 
- tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<div class="modal fade" id="addGame" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
+  aria-hidden="true">
 
- <div class="modal-dialog modal-dialog-scrollable" role="document">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalScrollableTitle">Add Game</h5>
@@ -10,39 +10,26 @@
         </button>
       </div>
       <div class="modal-body">
-          <form class="form-inline" >
-              <input style="width: 90%;" class="mx-auto form-control" type="search" placeholder="Search" aria-label="Search">
-            </form>
-          <ul class="list-group list-group-flush p-2" style="margin-bottom: 0; margin: 2px;" *ngFor="let u of onlineUsers">
-              <li class="list-group-item p-2">
-                <div class="row">
-                  <div class="col-md-2">
-                    <img class="float-left" src="assets\images\place.jpg" />
-                  </div>
-                  <div class="col-md-5">
-                    <h5 id="userame">{{u.name}}</h5>          
-                  </div>
-                  <div class="col-md-3 m-auto text-center" style="margin:auto">
-                    <app-small-star-rating></app-small-star-rating>
-          
-                  </div>
-                  <div class="col-md-2 m-auto text-center" style="margin:auto">
-                    <!-- <button mat-raised-button id="inviteBtn" color="warn" data-toggle="modal"
-                    data-target="#invitationModal">Invite</button> -->
-                    <mat-checkbox></mat-checkbox>
-                  </div>
-                </div>
-                </li>
-           
-                    
-
-                
-            </ul>
-            
+        <form >
+          <ng-template matStepLabel>Place Description</ng-template>
+          <span class="d-flex" style="font-weight: bold">Upload Game Image:</span>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" accept="image/*" placeholder="ProfileImage"
+               required>
+            <!-- <small class="text-danger" *ngIf="getProfileImage().invalid">{{getErrorMessageProfileImage()}}</small> -->
+            <label class="custom-file-label" for="customFile">Choose file</label>
+          </div>
+          <mat-form-field>
+            <input matInput placeholder="Description" required minlength="20">
+            <!-- <mat-error *ngIf="getDescription().invalid">{{getErrorMessageDescription()}}</mat-error> -->
+          </mat-form-field>
+          <div>
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" (click)="f()" >Invite</button>
+        <button type="button" class="btn btn-primary" (click)="f()">Add</button>
       </div>
     </div>
   </div>
@@ -50,5 +37,5 @@
 
 
 
-    
+
 </div>
