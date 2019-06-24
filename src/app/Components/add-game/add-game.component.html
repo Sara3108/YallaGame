@@ -11,17 +11,15 @@
       </div>
       <div class="modal-body">
         <form >
-          <ng-template matStepLabel>Place Description</ng-template>
-          <span class="d-flex" style="font-weight: bold">Upload Game Image:</span>
+        
+          <span class="d-flex" style="font-weight: bold">Upload Game Image</span>
           <div class="custom-file">
             <input type="file" class="custom-file-input" accept="image/*" placeholder="ProfileImage"
                required>
-            <!-- <small class="text-danger" *ngIf="getProfileImage().invalid">{{getErrorMessageProfileImage()}}</small> -->
             <label class="custom-file-label" for="customFile">Choose file</label>
           </div>
           <mat-form-field>
             <input matInput placeholder="Description" required minlength="20">
-            <!-- <mat-error *ngIf="getDescription().invalid">{{getErrorMessageDescription()}}</mat-error> -->
           </mat-form-field>
           <div>
           </div>
