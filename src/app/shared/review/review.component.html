@@ -13,7 +13,7 @@
           <img class="img-fluid mx-auto" style="border-radius: 50%" src="https://picsum.photos/70/70" alt="Profile image">
         </div>
         <div class="text-center">
-          <h3>Badr Shahin</h3>
+          <h3 *ngIf="userLoggin()">{{decodedToken.unique_name}}</h3>
           <span>Rate the care provided {{date | date:'MMMM dd yyyy'}}</span>
           <!-- <h2>rating</h2> -->
           <app-star-rating></app-star-rating>
@@ -41,14 +41,14 @@
         <script src="js/addons/rating.js"></script> -->
         <form>
           <div class="form-group mx-auto" style="opacity: 0.6; width: 90%">
-            <textarea class="form-control" style="background-color: aliceblue;" id="exampleFormControlTextarea1" rows="2"
+            <textarea [formControl]="content" class="form-control" style="background-color: aliceblue;" id="exampleFormControlTextarea1" rows="2"
               placeholder="Additional Comments..."></textarea>
           </div>
           <br>
           <div class="d-flex mx-auto" style="width: 90%; ">
             <button type="button" style="flex-grow: 1; margin-right: 15px;" class="btn btn-secondary" data-dismiss="modal">Not
               Now</button>
-            <button type="button" style="flex-grow: 1" class="btn btn-primary">Submit Review</button>
+            <button type="button" style="flex-grow: 1" class="btn btn-primary"(click)="addReview()" data-dismiss="modal">Submit Review</button>
           </div>
           <!-- <input type="submit" class="btn btn-primary float-right" value="Add" /> -->
         </form>

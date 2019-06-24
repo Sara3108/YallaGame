@@ -49,22 +49,21 @@ export class LocationPageComponent implements OnInit {
 
   FindPlaces() {
     this.isLoading = true;
-
-    let helper = new JwtHelperService();
-    let token = this.service.getUserAuthorizationToken();
-    let decodedToken = helper.decodeToken(token);
-    console.log(decodedToken);
-    this.service.findPlaces(this.getCity().value, decodedToken.nameid).subscribe(res => {
-      
-      this.router.navigate(['/places']);
-    }, err => {
-      this.isLoading = false;
-    });
-
+    if (this.service.userLoggedIn) {
+      let helper = new JwtHelperService();
+      let token = this.service.getUserAuthorizationToken();
+      let decodedToken = helper.decodeToken(token);
+      // console.log(decodedToken);
+      this.service.findPlaces(this.getCity().value, decodedToken.nameid).subscribe(res => {
+        this.router.navigate(['/places']);
+      }, err => {
+        this.isLoading = false;
+      });
+    }
   }
 
-
-  ngOnInit() {
+  ngOnInit(){
+    
   }
 
 }

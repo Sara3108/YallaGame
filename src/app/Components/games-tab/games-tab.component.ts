@@ -25,7 +25,10 @@ export class GamesTabComponent implements OnInit {
         console.log(this.games);
       }) 
   }
-  userLogin(){
+  placeLoggin(){
+    return this.authService.placeLoggedIn();
+  }
+  userLoggin(){
     return this.authService.userLoggedIn();
   }
 

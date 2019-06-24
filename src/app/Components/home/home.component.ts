@@ -14,15 +14,18 @@ places :any[];
 
 
   ngOnInit() {
-    let helper = new JwtHelperService();
+    if(this.userService.userLoggedIn){
+      let helper = new JwtHelperService();
 
-   let token = this.userService.getUserAuthorizationToken();
-   let decodedToken = helper.decodeToken(token);
-
-    this.service.getAllPlaces(decodedToken.nameid).subscribe(res=>{
-      this.places=res as any[];
-      console.log(this.places);
-    })
+      let token = this.userService.getUserAuthorizationToken();
+      let decodedToken = helper.decodeToken(token);
+   
+       this.service.getAllPlaces(decodedToken.nameid).subscribe(res=>{
+         this.places=res as any[];
+         console.log(this.places);
+       })
+    }
+ 
   }
 
   // up3Filter(){

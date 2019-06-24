@@ -14,17 +14,18 @@ export class InvitationModalComponent implements OnInit {
 
   onlineUsers:any[];
   ngOnInit() {
-    let helper = new JwtHelperService();
-    let token = this.authService.getUserAuthorizationToken();
-    let decodedToken = helper.decodeToken(token);
-    this.service.getOnlineUsers(decodedToken.nameid).subscribe(res=>{
-      this.onlineUsers= res as any[];
-      console.log("ONLINE USERS   "+this.onlineUsers);
-    })
-  }
-  f(){
-    console.log("ONLINE USERS   "+this.onlineUsers);
-
+    let decodedToken;
+    if(this.authService.userLoggedIn){
+      let helper = new JwtHelperService();
+      let token = this.authService.getUserAuthorizationToken();
+      decodedToken = helper.decodeToken(token);
+      this.service.getOnlineUsers(decodedToken.nameid).subscribe(res=>{
+        this.onlineUsers= res as any[];
+        console.log(this.onlineUsers);
+      })
+    }
+    
+   
   }
 
 

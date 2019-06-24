@@ -118,12 +118,16 @@ export class AuthLoginService {
   }
 
   getUserAuthorizationToken() {
+    if (localStorage.getItem('currentUser')) {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     return currentUser.token;
+    }
   }
   getPlaceAuthorizationToken() {
+    if (localStorage.getItem('currentPlace')) {
     const currentUser = JSON.parse(localStorage.getItem('currentPlace'));
     return currentUser.token;
+    }
   }
 
 
