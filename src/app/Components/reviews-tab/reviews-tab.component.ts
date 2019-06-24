@@ -38,4 +38,7 @@ export class ReviewsTabComponent implements OnInit {
   
     this.service.addReview(review).subscribe();
   }
+  userLogin(){
+    return this.authService.userLoggedIn();
+  }
 }

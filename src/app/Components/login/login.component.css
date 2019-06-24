@@ -47,7 +47,7 @@ hr{
      padding:0 10px; 
  }
 
-.example-container,form {
+.example-container,#f {
    
     display: flex;
     flex-direction: column;
