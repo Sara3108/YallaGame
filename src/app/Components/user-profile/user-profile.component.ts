@@ -15,13 +15,14 @@ export class UserProfileComponent implements OnInit {
 
   constructor(private service:UserProfileService,private auth:AuthLoginService) { }
   info;
-
+  loaded: boolean = false;
   ngOnInit() {
     let helper = new JwtHelperService();
     let token = this.auth.getUserAuthorizationToken();
     let decodedToken = helper.decodeToken(token);
     this.service.getUserInfo(decodedToken.nameid).subscribe(res=>{
       this.info=res;
+      this.loaded = true;
       console.log(this.info);
     })
   }

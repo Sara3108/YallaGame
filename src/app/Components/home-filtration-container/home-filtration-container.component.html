@@ -5,133 +5,41 @@
     <div style="flex-grow: 2; align-content: flex-end; align-items: flex-end">
       <img src="https://picsum.photos/200/300" id="profile_image" />
     </div> -->
-    
+
   <!-- </div> -->
   <div class="sticky-top">
     <app-nav></app-nav>
   </div>
   <div class="row p-2 ">
     <div class="col-md-8 my-auto">
-        <p class="m-2" style="flex-grow: 2">Places in <i> {{Ismaillia}} </i> / <i>{{user_selected_city}}</i></p>
+      <!-- <p class="m-2" style="flex-grow: 2">Places in <i> {{Ismaillia}} </i> / <i>{{user_selected_city}}</i></p> -->
     </div>
     <div class="col-md-4 my-auto">
-        <button mat-raised-button id="changeArea" style="float: right; right: 20px" color="warn" routerLink="/location">Change Area</button>
+      <!-- <button mat-raised-button id="changeArea" style="float: right; right: 20px" color="warn" routerLink="/location">Change
+        Area</button> -->
     </div>
   </div>
-  
+
 
 
   <div class="row " style="margin: 3px; margin-top: 0; padding-top: 0;">
-    <div class="col-md-3">
-      <!-- <app-filtration></app-filtration> -->
-      <div class="row" >
-          <!-- <div class="input-group">
-            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-            <div class="input-group-append">
-              <span class="input-group-text"></span>
-            </div>
-          </div> -->
-          <div class="row" style="margin: 10px 0; border: 1px solid lightgray; height: height; width: 100%">
-        
-            <h5 style="padding: 10px breadcrumb">Filter By</h5>
-            <hr class="w-100">
-            <ul class="list-group w-100">
-        
-              <!-- filter by rate -->
-              <li class="list-group-item"> Rate
-                <ul>
-                  <li style="list-style-type: none;">
-                    <div class="form-check">
-                      <!-- <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"> -->
-                      <mat-checkbox (click)="up2Filter()">Up to 2</mat-checkbox>
-                      <!-- <label class="form-check-label" for="defaultCheck1">
-                        Up to 3
-                      </label> -->
-                    </div>
-                    <div class="form-check">
-                      <!-- <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                      <label class="form-check-label" for="defaultCheck2">
-                        Up to 5
-                      </label> -->
-                      <mat-checkbox (click)="up4Filter()">Up to 4</mat-checkbox>
-                      
-                    </div>
-                  </li>
-                </ul>
-              </li>
-        
-              <div class="dropdown-divider"></div>
-        
-              <!-- filter by game -->
-              <li class="list-group-item"> Game
-                <ul>
-                  <li style="list-style-type: none;">
-                    <div class="form-check">
-                      
-                      <mat-checkbox>Football</mat-checkbox>
-                      
-                    </div>
-                    <div class="form-check">
-                    
-                      <mat-checkbox>Tennis</mat-checkbox>
-                      
-                    </div>
-                    <div class="form-check">
-                   
-                      <mat-checkbox>Chess</mat-checkbox>
-                      
-                    </div>
-                    <div class="form-check">
-                   
-                      <mat-checkbox>Ping Pong</mat-checkbox>
-                      
-                    </div>
-                  </li>
-                </ul>
-              </li>
-        
-              <div class="dropdown-divider"></div>
-        
-              <!-- filter by game type -->
-              <li class="list-group-item"> Game Type
-                  <ul>
-                    <li style="list-style-type: none;">
-                      <div class="form-check">
-                        <!-- <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                        <label class="form-check-label" for="defaultCheck1">
-                          Individual Player
-                        </label> -->
-                      <mat-checkbox>Individual Player</mat-checkbox>
-                        
-                      </div>
-                      <div class="form-check">
-                        <!-- <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                        <label class="form-check-label" for="defaultCheck2">
-                          Multi Player
-                        </label> -->
-                      <mat-checkbox>Multi Player</mat-checkbox>
-                        
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-            </ul>
-          </div>
-        </div>
-    </div>
-    <div class="col-md-9 p-0 m-0">
+    <div class="col-md-12 p-0 m-0">
       <!-- <app-home></app-home> -->
 
-<div class="" style="padding: 10px ; height: height;">
-  <div id="sortby" class="breadcrumb">
-    <p class="" style="margin: 5px; font-weight: 500"> Nearest Places
-        
-        
-    </p>
+      <div class="" style="padding: 10px ; height: height;">
+        <div id="sortby" class="breadcrumb">
+          <div class="col-md-8 my-auto">
+            <p class="" style="margin: 5px; font-weight: 500"> Nearest Places
+            </p>
+          </div>
+          <div class="col-md-4 my-auto">
+            <button mat-raised-button id="changeArea" style="float: right;" color="warn" routerLink="/location">Change
+              Area</button>
+          </div>
+        </div>
+        <app-home></app-home>
 
-  </div>
-
-  <mat-card *ngFor="let p of places">
+        <!-- <mat-card *ngFor="let p of places">
     <div class="row m-auto">
         <div class="col-md-2">
             <img id="i" class="rounded float-left" src="assets\images\place.jpg"/>
@@ -151,8 +59,8 @@
     </div>
     
 
-  </mat-card>
-</div>
+  </mat-card> -->
+      </div>
     </div>
   </div>
 </div>

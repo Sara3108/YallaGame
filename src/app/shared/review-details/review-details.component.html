@@ -1,9 +1,9 @@
 <div class="card col-md-3" style="margin: 10px 4%" *ngFor="let r of reviews">
   <div class="card-body text-center">
     <p class="card-text">{{r.content}}</p>
-    <app-star-rating></app-star-rating>
+    <app-star-rating [starsCount]="r.rate"></app-star-rating>
     <br>
-    <img class="img-fluid mx-auto" style="border-radius: 50%" src="https://picsum.photos/75/75" alt="Profile image">
+    <img class="img-fluid mx-auto" style="border-radius: 50%" src="https://payleq8.com/images/classprofile.png" alt="Profile image">
     <h4 class="mt-3">{{r.userName}}</h4>
   </div>
 </div>

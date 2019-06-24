@@ -68,14 +68,14 @@
           <mat-step [stepControl]="secondFormGroup">
             <form [formGroup]="secondFormGroup">
               <ng-template matStepLabel>Place Description</ng-template>
-              <span class="d-flex" style="font-weight: bold">Upload Profile Image:</span>
+              <!-- <span class="d-flex" style="font-weight: bold">Upload Profile Image:</span>
               <div class="custom-file">
                 <input type="file" class="custom-file-input" accept="image/*" placeholder="ProfileImage"
                   formControlName="profileImage" required>
                 <small class="text-danger" *ngIf="getProfileImage().invalid">{{getErrorMessageProfileImage()}}</small>
                 <label class="custom-file-label" for="customFile">Choose file</label>
               </div>
-              <br><br>
+              <br><br> -->
               <span class="d-flex" style="font-weight: bold">Place Description:</span>
               <mat-form-field>
                 <input matInput placeholder="Description" formControlName="description" required minlength="20">

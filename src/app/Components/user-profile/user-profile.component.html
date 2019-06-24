@@ -4,16 +4,16 @@
 
 <div class="container">
 
-  <div class="row place-profile mx-auto">
+  <div class="row place-profile mx-auto" style="position: relative;">
     <div class="col-md-2.5 order-md-1" id="profile-img-div">
-      <img class="img-fluid mx-auto" id="profile-img" src="https://picsum.photos/150/150" />
+      <img class="img-fluid mx-auto" width="150" height="150" id="profile-img" src="https://payleq8.com/images/classprofile.png" />
     </div>
-    <div class="col-md-6 order-md-2" style="margin-top: 110px; padding: 0">
-      <h3 class="text-dark" style="font-weight: 600">{{info.name}}</h3>
-      <p class="text-dark">rating stars</p>
+    <div class="col-md-6 order-md-2" style="margin-top: 110px; padding: 0;position: absolute; left: 190px;">
+      <h3 class="text-dark" style="font-weight: 600" *ngIf="loaded">{{info.name | uppercase }}</h3>
+      <!-- <p class="text-dark">rating stars</p> -->
     </div>
   </div>
-  <div>
+  <div> 
 
     <mat-tab-group mat-align-tabs="center" [selectedIndex]="1">
       <mat-tab disabled></mat-tab>

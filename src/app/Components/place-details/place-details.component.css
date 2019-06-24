@@ -70,8 +70,8 @@ mat-tab{
 }
 .custom-file-input{
     display: block;
-    width: 26px;
-    height: 26px;
+    /* width: 26px;
+    height: 26px; */
     top: 0;
     right: 0;
     left: 0;

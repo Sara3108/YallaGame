@@ -58,7 +58,7 @@ export class ContinuedRegisterComponent implements OnInit {
       longitude: ['', Validators.required],
     });
     this.secondFormGroup = this._formBuilder.group({
-      profileImage: ['', Validators.required],
+      // profileImage: ['', Validators.required],
       description: ['', [Validators.required, Validators.minLength(20)]],
       fromSelectedDay: ['', Validators.required],
       toSelectedDay: ['', Validators.required],
@@ -135,9 +135,9 @@ export class ContinuedRegisterComponent implements OnInit {
   getCity() {
     return this.form.get('city');
   }
-  getProfileImage() {
-    return this.secondFormGroup.get('profileImage');
-  }
+  // getProfileImage() {
+  //   return this.secondFormGroup.get('profileImage');
+  // }
   getDescription() {
     return this.secondFormGroup.get('description');
   }
@@ -184,9 +184,9 @@ export class ContinuedRegisterComponent implements OnInit {
         this.getPhone().hasError('maxLength') ? '' : 'Phone must be 11 digits';
   }
  
-  getErrorMessageProfileImage() {
-    return this.getProfileImage().hasError('required') ? 'Profile image is required' : '';
-  }
+  // getErrorMessageProfileImage() {
+  //   return this.getProfileImage().hasError('required') ? 'Profile image is required' : '';
+  // }
   getErrorMessageDescription() {
     return this.getDescription().hasError('required') ? 'Please add some details about your place'
       : this.getDescription().hasError('minLength') ? 'Description must be at least 20 character' : ''
@@ -205,7 +205,8 @@ export class ContinuedRegisterComponent implements OnInit {
       country: this.getCountry().value,
       city: this.getCity().value,
       phone: this.getPhone().value,
-      image: this.getProfileImage().value,
+      // image: this.getProfileImage().value,
+      image: 'http://19747.tel/icons/people%20(1).png',
       description: this.getDescription().value,
       days: (this.fromSelectedDay + ' - ' + this.toSelectedDay),
       openHour: `${this.openSelectedHour}`,

@@ -1,0 +1,11 @@
+.starItem{
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+.starItem:hover {
+    cursor: pointer;
+}
+.checked{
+    color: rgb(247, 203, 8);
+}

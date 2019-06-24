@@ -10,24 +10,19 @@ import { AuthLoginService } from '../../services/auth-login.service';
 })
 export class InvitationModalComponent implements OnInit {
 
-  constructor(private service:ReviewService,private authService:AuthLoginService) { }
+  constructor(private service: ReviewService, private authService: AuthLoginService) { }
 
-  onlineUsers:any[];
+  onlineUsers: any[];
   ngOnInit() {
     let decodedToken;
-    if(this.authService.userLoggedIn){
+    if (this.authService.userLoggedIn) {
       let helper = new JwtHelperService();
       let token = this.authService.getUserAuthorizationToken();
       decodedToken = helper.decodeToken(token);
-      this.service.getOnlineUsers(decodedToken.nameid).subscribe(res=>{
-        this.onlineUsers= res as any[];
+      this.service.getOnlineUsers(decodedToken.nameid).subscribe(res => {
+        this.onlineUsers = res as any[];
         console.log(this.onlineUsers);
       })
     }
-    
-   
   }
-
-
-
 }

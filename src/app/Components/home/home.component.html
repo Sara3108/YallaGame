@@ -1,5 +1,5 @@
 <div class="" style="padding: 10px ; height: height;">
-  <div id="sortby" class="breadcrumb">
+  <!-- <div id="sortby" class="breadcrumb">
     <p class="" style="margin: 5px; font-weight: 500">Sort By:
       <a style="font-weight: 300"> Recommended |</a>
       <a style="font-weight: 300"> Ratings |</a>
@@ -9,15 +9,14 @@
     </p>
 
 
-  </div>
+  </div> -->
 
-  <div class="d-flex">
-    <mat-card class="w-50" style="margin-left: 10px"  *ngFor="let p of places" >
+    <mat-card style="box-shadow: 5px 5px 15px" *ngFor="let p of places" >
       <div *ngIf="p != NUKK" class="row m-auto">
-        <div class="col-md-4 p-0">
+        <div class="col-md-2 p-0">
           <img id="i" class="rounded" [src]="p.image" />
         </div>
-        <div class="col-md-8 p-0">
+        <div class="col-md-10 p-0">
           <a [routerLink]="['/place-details',p.placeId]">
             <h3 id="placeName" style="margin-top: 0;">{{p.name}}</h3>
           </a>
@@ -26,8 +25,5 @@
           <app-star-rating class="d-flex m-auto" [starsCount]="p.rate"></app-star-rating>
         </div>
       </div> 
-
-
     </mat-card>
-  </div>
 </div>
