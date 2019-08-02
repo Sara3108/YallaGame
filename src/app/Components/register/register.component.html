@@ -14,6 +14,9 @@
   
           <h4><span>Register</span></h4>
           
+
+        <span class="alert alert-danger" *ngIf="errMsg==true">Invalid Register</span>
+
           <mat-form-field>
             <input matInput placeholder="Username" [formControl]="getUserName()" required>
             <mat-error *ngIf="getUserName().invalid">{{getErrorMessageUserName()}}</mat-error>

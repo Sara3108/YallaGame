@@ -24,8 +24,8 @@ export class RegisterComponent implements OnInit {
   form = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     username: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required]),
-    confirmPwd: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required,Validators.minLength(6)]),
+    confirmPwd: new FormControl('', [Validators.required,Validators.minLength(6)]),
     country: new FormControl(),
     city: new FormControl(),
     phone: new FormControl('', [Validators.minLength(11), Validators.maxLength(11)]),
@@ -72,11 +72,14 @@ export class RegisterComponent implements OnInit {
     return this.getUserName().hasError('required') ? 'UserName is Required' : '';
   }
   getErrorMessagePwd() {
-    return this.getPassword().hasError('required') ? 'Password is Required' : '';
+    return this.getPassword().hasError('required') ? 'Password is Required' : 
+    this.getPassword().hasError('minLength')? 'password must be at least 6 char':'';
   }
   getErrorMessageCPwd() {
     return this.getConfirmPwd().hasError('required') ? 'Confirm Password is Required' :
-      this.getConfirmPwd().hasError('MatchPassword') ? 'must match' : '';
+      this.getConfirmPwd().hasError('MatchPassword') ? 'must match' :
+    this.getConfirmPwd().hasError('minLength')? 'password must be at least 6 char':'';
+
   }
   getErrorMessageUser() {
     return this.getUser().hasError('required') ? 'Must Select the Kind of User' : '';
